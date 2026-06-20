@@ -16,7 +16,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #0e100f; /* Matches deep black main background */
+            background-color: #000000; /* Pure black background */
             z-index: 99999;
             display: flex;
             align-items: center;
@@ -103,7 +103,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.85); /* Enhanced readability on pure black */
             opacity: 0;
             animation: text-fade-in 1s ease 1s forwards;
             white-space: nowrap;
@@ -1570,7 +1570,7 @@
                     .to('.bar-mid', { opacity: 0, duration: 0.15, ease: 'power2.in', easeReverse: 'power2.out' }, 0)
                     .to('.bar-top', { attr: { x1: 3, y1: 3, x2: 13, y2: 13 }, duration: 0.28, ease: 'power3.inOut' }, 0)
                     .to('.bar-bot', { attr: { x1: 13, y1: 3, x2: 3, y2: 13 }, duration: 0.28, ease: 'power3.inOut' }, 0)
-                    .to('.menu-backdrop', { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0)
+                    .to('.menu-backdrop', { autoAlpha: 1, duration: 0.3, ease: 'power2.out' }, 0)
                     .from('.menu-panel', { autoAlpha: 0, yPercent: -10, scale: 0.6, duration: 0.8, transformOrigin: 'top center', ease: 'back.out(2)', easeReverse: 'power3.out' }, 0.1)
                     .from('.menu-link', { opacity: 0, y: 6, duration: 0.32, ease: 'power2.out', easeReverse: 'power2.out', stagger: 0.05 }, 0.22);
             }
