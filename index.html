@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCORE - Assurance Qualité</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=1.0.4">
+</head>
+<body>
+
+    <!-- HERO SECTION (Nouveau Design) -->
+    <section class="hero-wrapper">
+        
+        <!-- Logo en haut à gauche -->
+        <img src="logo.png" alt="SCORE Logo" class="top-left-logo">
+
+        <!-- Navigation Supérieure du Hero -->
+        <nav class="hero-nav">
+            <div class="nav-pill">
+                <a href="index.html" class="nav-link active">ACCUEIL</a>
+                <a href="index.html#smart-features-title" class="nav-link">SERVICES <span class="badge">QA</span></a>
+                <a href="index.html#offer-intro-title" class="nav-link">OFFRES</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="contact.html" class="nav-link">CONTACT</a>
+            </div>
+            
+            <!-- Island Menu -->
+            <div class="island">
+              <div class="island-logo--cont"><img class="island-logo" src="logo.png" alt="SCORE Logo" /></div>
+              <button class="menu-btn" id="menuToggle" aria-expanded="false" aria-controls="menu-overlay" aria-label="Open navigation menu">
+                <div class="button-cont">
+                  <svg id="menuIcon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <line class="bar bar-top" x1="2" y1="5" x2="14" y2="5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+                    <line class="bar bar-mid" x1="2" y1="8" x2="14" y2="8" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+                    <line class="bar bar-bot" x1="2" y1="11" x2="14" y2="11" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+            
+            <a href="index.html#score-motion" style="text-decoration: none;">
+                <button class="join-btn">
+                    AUDIT 
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </button>
+            </a>
+        </nav>
+
+        <!-- Contenu Gauche -->
+        <div class="hero-left">
+            <p class="hero-description">
+                <span class="muted">Software Control Optimization Risk & Evaluation</span>
+                Tests web et mobiles, assurance qualité,<br>
+                contrôle des risques applicatifs.
+            </p>
+            <svg class="hero-pattern" viewBox="0 0 220 270" aria-hidden="true">
+                <path d="M52 20 78 35v30L52 80 26 65V35z"/>
+                <path d="M104 20 130 35v30l-26 15-26-15V35z"/>
+                <path d="M26 80 52 95v30l-26 15L0 125V95z"/>
+                <path d="M78 80 104 95v30l-26 15-26-15V95z"/>
+                <path d="M130 80 156 95v30l-26 15-26-15V95z"/>
+                <path d="M52 140 78 155v30l-26 15-26-15v-30z"/>
+                <path d="M104 140 130 155v30l-26 15-26-15v-30z"/>
+                <path d="M156 140 182 155v30l-26 15-26-15v-30z"/>
+                <path d="M26 200 52 215v30l-26 15L0 245v-30z"/>
+                <path d="M78 200 104 215v30l-26 15-26-15v-30z"/>
+                <path d="M130 200 156 215v30l-26 15-26-15v-30z"/>
+            </svg>
+        </div>
+
+        <!-- Contenu Droite -->
+        <div class="hero-right">
+            <h1 class="hero-headline">
+                <span class="line line-design">Tests</span>
+                <span class="line line-amp">&amp;</span>
+                <span class="line line-tech">Qualité</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- L'image qui tourne au centre exact en 3D avec de l'épaisseur -->
+    <div class="floating-object-container">
+        <img src="tourne.png" alt="Objet Tournant" class="floating-layer layer-base">
+        <img src="tourne.png" class="floating-layer layer-1">
+        <img src="tourne.png" class="floating-layer layer-2">
+        <img src="tourne.png" class="floating-layer layer-3">
+        <img src="tourne.png" class="floating-layer layer-4">
+        <img src="tourne.png" class="floating-layer layer-5">
+        <img src="tourne.png" class="floating-layer layer-6">
+        <img src="tourne.png" class="floating-layer layer-7">
+        <img src="tourne.png" class="floating-layer layer-8">
+        <img src="tourne.png" class="floating-layer layer-9">
+        <img src="tourne.png" class="floating-layer layer-10">
+        <img src="tourne.png" class="floating-layer layer-11">
+        <img src="tourne.png" class="floating-layer layer-12">
+        <img src="tourne.png" class="floating-layer layer-13">
+        <img src="tourne.png" class="floating-layer layer-14">
+        <img src="tourne.png" class="floating-layer layer-15">
+    </div>
+
+    <main class="page-content">
+    <section class="skills-section">
+        <h2 class="skills-title">NOS <span>SERVICES</span></h2>
+
+        <div class="skills-orbit" aria-hidden="true"></div>
+
+        <div class="skills-label tests">Tests Logiciels</div>
+        <div class="skills-label qa">Qualité</div>
+        <div class="skills-label risks">Développement</div>
+        <div class="skills-label audit">Support Technique</div>
+        <div class="skills-label digital">Digitalisation</div>
+    </section>
+
+    <section class="kinetic-section" id="score-motion">
+        <div class="kinetic-inner">
+            <h2 class="kinetic-flow" aria-label="SCORE détecte les anomalies avant vos utilisateurs et livre un rapport QA fiable">
+                <span class="kinetic-mask"><span class="kinetic-word">SCORE</span></span>
+
+                <svg class="kinetic-icon spin" style="--icon-color: #67D264;" viewBox="0 0 100 100" aria-hidden="true">
+                    <path d="M50 10v80M10 50h80M22 22l56 56M78 22 22 78" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+                </svg>
+
+                <span class="kinetic-type kinetic-yellow" data-text="détecte"></span>
+                <span class="kinetic-mask"><span class="kinetic-word">les</span></span>
+
+                <svg class="kinetic-icon pulse" style="--icon-color: #EAB742;" viewBox="0 0 120 80" aria-hidden="true">
+                    <rect x="4" y="12" width="112" height="22" rx="11" fill="currentColor"/>
+                    <rect x="4" y="46" width="84" height="22" rx="11" fill="currentColor" opacity="0.62"/>
+                </svg>
+
+                <span class="kinetic-type" data-text="anomalies"></span>
+                <span class="kinetic-mask"><span class="kinetic-word">avant</span></span>
+                <span class="kinetic-mask"><span class="kinetic-word">vos</span></span>
+
+                <svg class="kinetic-icon" style="--icon-color: #D54A58;" viewBox="0 0 100 100" aria-hidden="true">
+                    <rect x="18" y="18" width="64" height="64" rx="8" fill="currentColor" transform="rotate(45 50 50)"/>
+                </svg>
+
+                <span class="kinetic-mask"><span class="kinetic-word">utilisateurs</span></span>
+                <span class="kinetic-mask"><span class="kinetic-word kinetic-small kinetic-green">QA</span></span>
+                <span class="kinetic-type kinetic-yellow" data-text="évalue"></span>
+                <span class="kinetic-mask"><span class="kinetic-word">les</span></span>
+                <span class="kinetic-type" data-text="risques"></span>
+
+                <span class="kinetic-smile" aria-hidden="true">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="7"/>
+                        <circle cx="36" cy="40" r="4" fill="currentColor"/>
+                        <circle cx="64" cy="40" r="4" fill="currentColor"/>
+                        <path d="M30 60c9 14 31 14 40 0" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+                    </svg>
+                </span>
+
+                <span class="kinetic-mask"><span class="kinetic-word">et</span></span>
+                <span class="kinetic-type" data-text="livre"></span>
+                <span class="kinetic-mask"><span class="kinetic-word">un</span></span>
+                <span class="kinetic-type kinetic-yellow" data-text="rapport"></span>
+                <span class="kinetic-mask"><span class="kinetic-word kinetic-small kinetic-green">QA</span></span>
+            </h2>
+
+        </div>
+
+        <div class="score-cards-stage">
+            <div class="score-cards-pin">
+                <article class="score-reveal-card" aria-label="Audit gratuit SCORE">
+                    <svg class="score-card-title" viewBox="0 0 320 150" aria-hidden="true">
+                        <path id="score-card-title-arc" d="M34 96 C86 24 234 24 286 96" fill="none"></path>
+                        <text>
+                            <textPath href="#score-card-title-arc" startOffset="50%" text-anchor="middle">
+                                Tests Logiciels
+                            </textPath>
+                        </text>
+                    </svg>
+                    <span class="score-card-number">1</span>
+                    <p>Tests fonctionnels, exploratoires, de régression et de validation. Vos parcours critiques passés au crible avant la mise en production.</p>
+                </article>
+
+                <article class="score-reveal-card card-two" aria-label="Diagnostic risques SCORE">
+                    <svg class="score-card-title" viewBox="0 0 320 150" aria-hidden="true">
+                        <path id="score-card-title-arc-2" d="M34 96 C86 24 234 24 286 96" fill="none"></path>
+                        <text>
+                            <textPath href="#score-card-title-arc-2" startOffset="50%" text-anchor="middle">
+                                Assurance Qualité
+                            </textPath>
+                        </text>
+                    </svg>
+                    <span class="score-card-number">2</span>
+                    <p>Audit qualité, vérification de conformité, revue fonctionnelle et accompagnement QA pour fiabiliser vos livrables.</p>
+                </article>
+
+                <article class="score-reveal-card card-three" aria-label="Priorisation bugs SCORE">
+                    <svg class="score-card-title" viewBox="0 0 320 150" aria-hidden="true">
+                        <path id="score-card-title-arc-3" d="M34 96 C86 24 234 24 286 96" fill="none"></path>
+                        <text>
+                            <textPath href="#score-card-title-arc-3" startOffset="50%" text-anchor="middle">
+                                Développement Web
+                            </textPath>
+                        </text>
+                    </svg>
+                    <span class="score-card-number">3</span>
+                    <p>Sites vitrines, applications web et solutions métier sur-mesure, conçus avec rigueur et testés dès la conception.</p>
+                </article>
+
+                <article class="score-reveal-card card-four" aria-label="Rapport QA SCORE">
+                    <svg class="score-card-title" viewBox="0 0 320 150" aria-hidden="true">
+                        <path id="score-card-title-arc-4" d="M34 96 C86 24 234 24 286 96" fill="none"></path>
+                        <text>
+                            <textPath href="#score-card-title-arc-4" startOffset="50%" text-anchor="middle">
+                                Support Technique
+                            </textPath>
+                        </text>
+                    </svg>
+                    <span class="score-card-number">4</span>
+                    <p>Assistance utilisateurs, maintenance applicative et support informatique pour assurer la continuité de vos systèmes.</p>
+                </article>
+
+                <article class="score-reveal-card card-five" aria-label="Digitalisation SCORE">
+                    <svg class="score-card-title" viewBox="0 0 320 150" aria-hidden="true">
+                        <path id="score-card-title-arc-5" d="M34 96 C86 24 234 24 286 96" fill="none"></path>
+                        <text>
+                            <textPath href="#score-card-title-arc-5" startOffset="50%" text-anchor="middle">
+                                Digitalisation
+                            </textPath>
+                        </text>
+                    </svg>
+                    <span class="score-card-number">5</span>
+                    <p>Automatisation de processus, outils de gestion et solutions numériques pour fluidifier vos opérations métier.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <section class="smart-features-section" aria-labelledby="smart-features-title">
+        <h2 class="smart-features-title" id="smart-features-title">
+            Découvrez nos <strong>solutions intelligentes</strong> qui
+            <strong>accélèrent</strong> votre cycle qualité
+        </h2>
+
+        <div class="smart-features-grid">
+            <article class="smart-feature">
+                <div class="smart-feature-visual">
+                    <img class="smart-feature-image" src="audit.jpg" alt="Aperçu audit QA">
+                </div>
+                <div class="smart-feature-copy">
+                    <h3 class="smart-feature-heading">Audit QA étape par étape</h3>
+                    <p>Chaque mission suit une méthode claire pour identifier, reproduire et prioriser les anomalies.</p>
+                </div>
+            </article>
+
+            <article class="smart-feature">
+                <div class="smart-feature-visual">
+                    <img class="smart-feature-image" src="rapports.jpg" alt="Aperçu rapport QA">
+                </div>
+                <div class="smart-feature-copy">
+                    <h3 class="smart-feature-heading">Rapports prêts à partager</h3>
+                    <p>Recevez des synthèses exploitables par vos équipes produit, design et développement.</p>
+                </div>
+            </article>
+
+            <article class="smart-feature">
+                <div class="smart-feature-visual">
+                    <img class="smart-feature-image" src="tests.jpg" alt="Aperçu tests adaptables">
+                </div>
+                <div class="smart-feature-copy">
+                    <h3 class="smart-feature-heading">Tests adaptables</h3>
+                    <p>Nos contrôles s’ajustent à vos parcours, vos fonctionnalités et vos priorités métier.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="why-test-section" aria-labelledby="why-test-title">
+        <div class="why-test-top">
+            <h2 class="why-test-title" id="why-test-title">
+                <span>Pourquoi tester,</span>
+                <span class="muted">son application ?</span>
+            </h2>
+
+            <div class="why-container">
+                <div class="why-right-container">
+                    <div class="why-right-content">
+                        <!-- Card 1 (Jaune) -->
+                        <div class="why-card-wrapper">
+                            <div class="why-right-element is-card-1" style="background-color: #EAB742;">
+                                <div class="why-card-left">
+                                    <div class="why-card-left-grid">
+                                        <div class="why-card-circle-num">1</div>
+                                        <div class="why-card-title-word-1">Bugs en</div>
+                                        <div class="why-card-circle-arrow">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                        </div>
+                                        <div class="why-card-title-word-2">Production</div>
+                                    </div>
+                                </div>
+                                <div class="why-card-right">
+                                    <div>
+                                        <h4 class="why-card-detail-title">Fiabiliser votre application</h4>
+                                        <p class="why-card-detail-desc">Détecter et corriger les erreurs critiques en amont avant que vos utilisateurs ne les rencontrent en production.</p>
+                                    </div>
+                                    <span class="why-card-category">Réduction des risques</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 (Blanc) -->
+                        <div class="why-card-wrapper">
+                            <div class="why-right-element is-card-2" style="background-color: #ffffff;">
+                                <div class="why-card-left">
+                                    <div class="why-card-left-grid">
+                                        <div class="why-card-circle-num">2</div>
+                                        <div class="why-card-title-word-1">Expérience</div>
+                                        <div class="why-card-circle-arrow">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                        </div>
+                                        <div class="why-card-title-word-2">Utilisateur</div>
+                                    </div>
+                                </div>
+                                <div class="why-card-right">
+                                    <div>
+                                        <h4 class="why-card-detail-title">Interface & Interactions</h4>
+                                        <p class="why-card-detail-desc">Garantir un parcours utilisateur fluide, agréable et intuitif sur toutes les plateformes mobiles et web.</p>
+                                    </div>
+                                    <span class="why-card-category">Optimisation de l'ergonomie</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 (Rouge) -->
+                        <div class="why-card-wrapper">
+                            <div class="why-right-element is-card-3" style="background-color: #D54A58;">
+                                <div class="why-card-left">
+                                    <div class="why-card-left-grid">
+                                        <div class="why-card-circle-num">3</div>
+                                        <div class="why-card-title-word-1">Confiance</div>
+                                        <div class="why-card-circle-arrow">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                        </div>
+                                        <div class="why-card-title-word-2">Client</div>
+                                    </div>
+                                </div>
+                                <div class="why-card-right">
+                                    <div>
+                                        <h4 class="why-card-detail-title">Image de Marque</h4>
+                                        <p class="why-card-detail-desc">Donner une image professionnelle avec une solution stable, performante et sans dysfonctionnement technique.</p>
+                                    </div>
+                                    <span class="why-card-category">Crédibilité de votre marque</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 (Bleu) -->
+                        <div class="why-card-wrapper">
+                            <div class="why-right-element is-card-4" style="background-color: #90caf9;">
+                                <div class="why-card-left">
+                                    <div class="why-card-left-grid">
+                                        <div class="why-card-circle-num">4</div>
+                                        <div class="why-card-title-word-1">Anomalies</div>
+                                        <div class="why-card-circle-arrow">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                        </div>
+                                        <div class="why-card-title-word-2">Clés</div>
+                                    </div>
+                                </div>
+                                <div class="why-card-right">
+                                    <div>
+                                        <h4 class="why-card-detail-title">Détection Précoce</h4>
+                                        <p class="why-card-detail-desc">Identifier et cataloguer les anomalies dès les premières phases du cycle de livraison pour sécuriser vos déploiements.</p>
+                                    </div>
+                                    <span class="why-card-category">Identification avant lancement</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5 (Vert) -->
+                        <div class="why-card-wrapper">
+                            <div class="why-right-element is-card-5" style="background-color: #67D264;">
+                                <div class="why-card-left">
+                                    <div class="why-card-left-grid">
+                                        <div class="why-card-circle-num">5</div>
+                                        <div class="why-card-title-word-1">Coûts de</div>
+                                        <div class="why-card-circle-arrow">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                        </div>
+                                        <div class="why-card-title-word-2">Correction</div>
+                                    </div>
+                                </div>
+                                <div class="why-card-right">
+                                    <div>
+                                        <h4 class="why-card-detail-title">Rentabilité Maximale</h4>
+                                        <p class="why-card-detail-desc">Corriger les bugs en phase de test coûte en moyenne 10 fois moins cher qu'une fois l'application déployée en production.</p>
+                                    </div>
+                                    <span class="why-card-category">Économie de budget</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offer-intro-section" aria-labelledby="offer-intro-title">
+                <!-- Wrapper qui sera scrollé horizontalement et épinglé par GSAP -->
+                <div class="offer-intro-marquee">
+                    <div class="offer-intro-inner">
+                        <h2 class="offer-intro-title" id="offer-intro-title">Quelle offre choisir ?</h2>
+                    </div>
+                </div>
+
+                <!-- Showcase des offres dans le même parent, sans hack de marge négative -->
+                <div class="footer-hero-section offer-showcase">
+                <h1 class="footer-hero-title">
+                    Choisissez votre
+                    <span>offre qualité</span>
+                </h1>
+                
+                <div class="hero-actions">
+                    <!-- Offre Découverte (Rose) -->
+                    <article class="offer-card is-discovery">
+                        <svg viewBox="0 0 50 30" class="offer-card-doodle" aria-hidden="true">
+                            <circle cx="15" cy="12" r="3" fill="#000" />
+                            <circle cx="35" cy="12" r="3" fill="#000" />
+                            <path d="M23 17 L27 17 L25 19 Z" fill="#000" />
+                            <path d="M25 19 Q23.5 21 21 21 M25 19 Q26.5 21 29 21" stroke="#000" stroke-width="1.8" stroke-linecap="round" fill="none" />
+                        </svg>
+                        
+                        <div class="offer-card-illustration">
+                            <svg viewBox="0 0 160 160" fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                              <path d="M40 30 Q42 22 45 30 Q53 32 45 35 Q42 43 40 35 Q32 32 40 30 Z" fill="#000" />
+                              <path d="M120 25 Q122 17 125 25 Q133 27 125 30 Q122 38 120 30 Q112 27 120 25 Z" fill="#000" />
+                              <circle cx="80" cy="18" r="2" fill="#000" />
+                              <circle cx="35" cy="50" r="1.5" fill="#000" />
+                              <circle cx="125" cy="48" r="1.5" fill="#000" />
+                              
+                              <path d="M55 45 C55 45 55 90 80 90 C105 90 105 45 105 45 Z" fill="none" stroke-width="3" />
+                              <path d="M55 45 L105 45" stroke-width="3" />
+                              
+                              <path d="M55 52 C42 52 40 70 55 74" stroke-width="2.5" />
+                              <path d="M105 52 C118 52 120 70 105 74" stroke-width="2.5" />
+                              
+                              <path d="M80 90 L80 108" stroke-width="3" />
+                              
+                              <path d="M68 108 L92 108" stroke-width="3" />
+                              <path d="M60 114 L100 114 L94 122 L66 122 Z" fill="none" stroke-width="3" />
+                              
+                              <path d="M77 58 L80 55 L80 75 M76 75 L84 75" stroke-width="3.5" />
+                              
+                              <path d="M22 80 C28 72 38 78 32 88" stroke-width="2.5" />
+                              <path d="M16 88 C24 80 34 86 28 96" stroke-width="2.5" />
+                              <path d="M14 98 C22 90 32 96 26 106" stroke-width="2.5" />
+                              <path d="M16 108 Q24 100 32 112" stroke-width="2.5" />
+                              
+                              <path d="M138 80 C132 72 122 78 128 88" stroke-width="2.5" />
+                              <path d="M144 88 C136 80 126 86 132 96" stroke-width="2.5" />
+                              <path d="M146 98 C138 90 128 96 134 106" stroke-width="2.5" />
+                              <path d="M144 108 Q136 100 128 112" stroke-width="2.5" />
+                            </svg>
+                        </div>
+                        
+                        <div class="offer-card-content">
+                            <span class="offer-card-badge">Découverte</span>
+                            <h3 class="offer-card-title">Évaluation gratuite sous 72h</h3>
+                            <p class="offer-card-desc">Analyse préliminaire et rapport synthétique identifiant les anomalies fonctionnelles et ergonomiques visibles de votre application.</p>
+                        </div>
+                        
+                        <div class="offer-card-footer">
+                            <a href="contact.html?offer=decouverte" class="offer-card-btn">
+                                <span class="play-circle">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </span>
+                                COMMENCER GRATUITEMENT
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Offre Standard (Bleue) -->
+                    <article class="offer-card is-standard">
+                        <svg viewBox="0 0 50 30" class="offer-card-doodle" aria-hidden="true">
+                            <ellipse cx="15" cy="12" rx="4" ry="5.5" stroke="#000" stroke-width="2" fill="#fff" />
+                            <ellipse cx="33" cy="12" rx="4" ry="5.5" stroke="#000" stroke-width="2" fill="#fff" />
+                            <circle cx="17" cy="12" r="2.2" fill="#000" />
+                            <circle cx="35" cy="12" r="2.2" fill="#000" />
+                            <path d="M20 21 Q24 24 28 21" stroke="#000" stroke-width="2" stroke-linecap="round" fill="none" />
+                        </svg>
+                        
+                        <div class="offer-card-illustration">
+                            <svg viewBox="0 0 160 160" fill="none" stroke="#000000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                              <path d="M45 55 C40 40 50 32 60 35 C65 28 80 25 90 32 C100 25 110 32 112 40 C120 40 122 55 115 62" fill="none" stroke-width="2.5" />
+                              <path d="M50 62 C50 82 110 82 110 62" fill="none" stroke-width="3" />
+                              <path d="M48 55 C46 50 52 46 56 50 C58 44 66 42 68 48 C72 42 80 44 82 50 C86 44 94 44 96 50 C100 44 108 46 106 52 C110 50 114 56 110 60" fill="none" stroke-width="2.5" />
+                              
+                              <path d="M54 55 C54 50 66 50 66 55 C66 61 54 61 54 55 Z" fill="#000" />
+                              <path d="M78 55 C78 50 90 50 90 55 C90 61 78 61 78 55 Z" fill="#000" />
+                              <path d="M66 55 L78 55" stroke-width="3" />
+                              
+                              <path d="M57 53 L60 57" stroke="#ffffff" stroke-width="1.5" />
+                              <path d="M61 53 L63 56" stroke="#ffffff" stroke-width="1.5" />
+                              <path d="M81 53 L84 57" stroke="#ffffff" stroke-width="1.5" />
+                              <path d="M85 53 L87 56" stroke="#ffffff" stroke-width="1.5" />
+                              
+                              <path d="M68 68 Q80 76 92 68" stroke-width="3" />
+                              <path d="M66 68 L64 69 M94 68 L96 69" stroke-width="2.5" />
+                              
+                              <path d="M35 78 C35 72 45 72 45 78 C45 84 35 84 35 78 Z" fill="none" stroke-width="2.5" />
+                              <path d="M32 76 C32 70 42 70 42 76" stroke-width="2.5" />
+                              <path d="M29 78 Q22 84 28 90 C34 96 42 90 42 90" stroke-width="2.5" />
+                              
+                              <path d="M18 68 L32 74 M15 76 L30 78 M16 84 L31 82 M22 90 L34 84" stroke-width="2.5" />
+                              <path d="M18 68 C12 72 12 84 22 90" stroke-width="2.5" />
+                              
+                              <path d="M125 78 C125 72 115 72 115 78 C115 84 125 84 125 78 Z" fill="none" stroke-width="2.5" />
+                              <path d="M128 76 C128 70 118 70 118 76" stroke-width="2.5" />
+                              
+                              <path d="M68 79 L80 92 L92 79" stroke-width="2.5" />
+                            </svg>
+                        </div>
+                        
+                        <div class="offer-card-content">
+                            <span class="offer-card-badge">Standard — 49 000 FCFA</span>
+                            <h3 class="offer-card-title">Assurance qualité complète</h3>
+                            <p class="offer-card-desc">Analyse fonctionnelle exhaustive avec création de scénarios, rapports détaillés et support après restitution.</p>
+                        </div>
+                        
+                        <div class="offer-card-footer">
+                            <a href="contact.html?offer=standard" class="offer-card-btn">
+                                <span class="play-circle">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </span>
+                                SÉLECTIONNER L'OFFRE
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="offer-faq-mobile-container">
+                    <a href="faq.html" class="offer-faq-mobile-btn">
+                        LIRE NOTRE FAQ
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="arrow-icon">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            </div> <!-- Closes .offer-intro-section -->
+        </div>
+    </section>
+
+    <!-- Custom Black Showcase Section -->
+    <section class="home-custom-black-section">
+        <div class="custom-black-inner">
+            
+            <!-- Left Side: Monospace Tag -->
+            <div class="custom-black-tag">
+                <span class="custom-black-tag-dot"></span>
+                NOTRE ENGAGEMENT QA
+            </div>
+
+            <!-- Right Side: Content (Heading + CTA Button) -->
+            <div class="custom-black-content">
+                <h2 class="custom-black-title">
+                    Détectez les anomalies et évaluez les risques de votre application avant qu'ils n'impactent vos utilisateurs.
+                </h2>
+                
+                <a href="contact.html" class="custom-black-btn">
+                    SOUMETTRE MON APPLICATION
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION (La carte blanche intacte) -->
+    <div class="main-card">
+
+        <div class="footer-hero-section">
+            <p class="hero-subtitle">
+                SOUMETTEZ VOTRE APPLICATION WEB OU MOBILE.<br>
+                PREMIER RETOUR SOUS 72 HEURES OUVRÉES.
+            </p>
+            
+            <h1 class="footer-hero-title">
+                Obtenez un<br>
+                audit gratuit
+            </h1>
+            
+            <div class="hero-actions">
+                <a href="#score-motion" class="btn-primary-footer" style="text-decoration: none;">
+                    SOUMETTRE UNE APP
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </a>
+                <a href="#offer-intro-title" class="btn-secondary-footer" style="text-decoration: none;">
+                    VOIR LES OFFRES
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="newsletter-section">
+                <h2 class="newsletter-title">Parlez-nous de votre application</h2>
+                <form class="subscribe-form" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="VOTRE EMAIL" required>
+                    <button type="submit">
+                        ENVOYER
+                        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            
+            <div class="links-section">
+                <div class="link-col">
+                    <h3>Social</h3>
+                    <a href="#">LINKEDIN</a>
+                </div>
+                
+                <div class="link-col">
+                    <h3>Pages</h3>
+                    <a href="index.html">ACCUEIL</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="index.html#offer-intro-title">OFFRES</a>
+                    <a href="index.html#smart-features-title">SERVICES</a>
+                </div>
+                
+                <div class="link-col">
+                    <h3>Contact</h3>
+                    <a href="mailto:obtenezinfoscore@gmail.com">EMAIL</a>
+                    <a href="tel:0153755050">01 53 75 50 50</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menu-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <div class="menu-backdrop"></div>
+      <div class="menu-panel">
+        <nav>
+          <a class="menu-link" href="index.html" tabindex="-1"><span>Accueil</span><span class="link-num">01</span></a>
+          <a class="menu-link" href="index.html#smart-features-title" tabindex="-1"><span>Services</span><span class="link-num">02</span></a>
+          <a class="menu-link" href="index.html#offer-intro-title" tabindex="-1"><span>Offres</span><span class="link-num">03</span></a>
+          <a class="menu-link" href="faq.html" tabindex="-1"><span>FAQ</span><span class="link-num">04</span></a>
+          <a class="menu-link" href="contact.html" tabindex="-1"><span>Contact</span><span class="link-num">05</span></a>
+        </nav>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        const floatingObject = document.querySelector('.floating-object-container');
+        const skillsSection = document.querySelector('.skills-section');
+        const skillsOrbit = document.querySelector('.skills-orbit');
+
+        const whyCardText = document.querySelector('.why-test-card-text');
+
+        if (whyCardText && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            whyCardText.innerHTML = whyCardText.textContent
+                .split('')
+                .map((char) => `<span class="why-card-char">${char === ' ' ? '&nbsp;' : char}</span>`)
+                .join('');
+
+            const whyCardChars = whyCardText.querySelectorAll('.why-card-char');
+
+            gsap.fromTo(whyCardChars,
+                {
+                    yPercent: () => gsap.utils.random(-180, 180),
+                    rotation: () => gsap.utils.random(-18, 18)
+                },
+                {
+                    yPercent: 0,
+                    rotation: 0,
+                    duration: 1.1,
+                    ease: 'back.out(1.2)',
+                    stagger: 0.025,
+                    repeat: -1,
+                    repeatDelay: 0.35,
+                    yoyo: true
+                }
+            );
+
+            gsap.to(whyCardText, {
+                xPercent: -100,
+                duration: 14,
+                ease: 'none',
+                repeat: -1
+            });
+        }
+
+        const offerIntroTitle = document.querySelector('.offer-intro-title');
+
+        if (offerIntroTitle && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const chars = offerIntroTitle.textContent.split('');
+            offerIntroTitle.innerHTML = chars
+                .map((char) => {
+                    return `<span class="offer-char">${char === ' ' ? '&nbsp;' : char}</span>`;
+                })
+                .join('');
+
+            const offerChars = offerIntroTitle.querySelectorAll('.offer-char');
+
+            const offerScrollTween = gsap.to(offerIntroTitle, {
+                xPercent: -100,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.offer-intro-marquee',
+                    start: 'top 35%',
+                    end: '+=2600px',
+                    scrub: 1.2,
+                    pin: true,
+                    invalidateOnRefresh: true
+                }
+            });
+
+            offerChars.forEach((char) => {
+                gsap.from(char, {
+                    yPercent: 'random(-200, 200)',
+                    rotation: 'random(-20, 20)',
+                    ease: 'back.out(1.2)',
+                    scrollTrigger: {
+                        trigger: char,
+                        containerAnimation: offerScrollTween,
+                        start: 'left 100%',
+                        end: 'left 30%',
+                        scrub: 1
+                    }
+                });
+            });
+        }
+
+        const offerShowcase = document.querySelector('.offer-showcase');
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            [
+                {
+                    selector: '.smart-features-title',
+                    trigger: '.smart-features-section'
+                },
+                {
+                    selector: '.why-test-title span',
+                    trigger: '.why-test-section',
+                    stagger: 0.12
+                },
+                {
+                    selector: '.offer-showcase .footer-hero-title',
+                    trigger: '.offer-showcase',
+                    stagger: 0.1
+                }
+            ].forEach((animation) => {
+                gsap.from(animation.selector, {
+                    y: 70,
+                    opacity: 0,
+                    duration: 0.9,
+                    ease: 'power3.out',
+                    stagger: animation.stagger || 0,
+                    scrollTrigger: {
+                        trigger: animation.trigger,
+                        start: 'top 78%',
+                        toggleActions: 'play none none reverse'
+                    }
+                });
+            });
+        }
+
+        // --- Animation des Cartes Pourquoi Tester ---
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const mm = gsap.matchMedia();
+
+            // Desktop
+            mm.add("(min-width: 901px)", () => {
+                const cards = gsap.utils.toArray(".why-right-element");
+
+                // Cumulative offset of stacked deck bottom (80px * 4 + 180px card height = 500px)
+                const cardHeight = 180;
+                const endOffset = 80 * (cards.length - 1) + cardHeight;
+
+                // Pin each card at cumulative 80px offsets
+                cards.forEach((card, i) => {
+                    ScrollTrigger.create({
+                        trigger: card,
+                        start: "top top+=" + (80 * i),
+                        end: "top top+=" + endOffset,
+                        endTrigger: ".offer-intro-section",
+                        pin: true,
+                        pinSpacing: false,
+                        id: "why-card-pin-" + (i + 1)
+                    });
+                });
+            });
+
+            // Mobile/Tablet
+            mm.add("(max-width: 900px)", () => {
+                const cards = gsap.utils.toArray(".why-right-element");
+
+                // Cumulative offset of stacked deck bottom (60px * 4 + 260px card height = 500px)
+                const cardHeight = 260;
+                const endOffset = 60 * (cards.length - 1) + cardHeight;
+
+                // Pin each card at cumulative 60px offsets
+                cards.forEach((card, i) => {
+                    ScrollTrigger.create({
+                        trigger: card,
+                        start: "top top+=" + (60 * i),
+                        end: "top top+=" + endOffset,
+                        endTrigger: ".offer-intro-section",
+                        pin: true,
+                        pinSpacing: false,
+                        id: "why-card-pin-mob-" + (i + 1)
+                    });
+                });
+            });
+        }
+
+        if (offerShowcase) {
+            const offerToggle = offerShowcase.querySelector('[data-offer-toggle]');
+            const offerAction = offerShowcase.querySelector('[data-offer-action]');
+            const offerTargetButtons = offerShowcase.querySelectorAll('[data-offer-target]');
+
+            if (offerToggle) {
+                offerToggle.addEventListener('click', () => {});
+            }
+            if (offerAction) {
+                offerAction.addEventListener('click', () => {});
+            }
+            offerTargetButtons.forEach((button) => {
+                button.addEventListener('click', () => {});
+            });
+        }
+
+        // --- Smart Features Section Cards Animation ---
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const featuresTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.smart-features-grid',
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+
+            featuresTl.from('.smart-features-section .smart-feature', {
+                y: 80,
+                rotationX: 10,
+                rotationY: -5,
+                opacity: 0,
+                duration: 1.2,
+                ease: 'power4.out',
+                stagger: 0.15
+            })
+            .from('.smart-features-section .smart-feature-image', {
+                scale: 1.12,
+                duration: 1.4,
+                ease: 'power3.out',
+                stagger: 0.15
+            }, '-=1.2')
+            .from('.smart-features-section .smart-feature-copy', {
+                y: 20,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                stagger: 0.15
+            }, '-=1.0');
+        }
+
+        // --- Offer Cards Animation ---
+        if (offerShowcase && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const offersTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.offer-showcase .hero-actions',
+                    start: 'top 82%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+
+            offersTl.from('.offer-showcase .offer-card.is-discovery', {
+                x: -50,
+                y: 100,
+                rotation: -3,
+                opacity: 0,
+                duration: 1.2,
+                ease: 'power4.out'
+            })
+            .from('.offer-showcase .offer-card.is-standard', {
+                x: 50,
+                y: 100,
+                rotation: 3,
+                opacity: 0,
+                duration: 1.2,
+                ease: 'power4.out'
+            }, '-=1.0')
+            .from('.offer-showcase .offer-card-illustration', {
+                scale: 0.8,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'back.out(1.7)',
+                stagger: 0.2
+            }, '-=0.8')
+            .from('.offer-showcase .offer-card-btn', {
+                y: 15,
+                opacity: 0,
+                duration: 0.6,
+                ease: 'power2.out',
+                stagger: 0.2
+            }, '-=0.6');
+        }
+
+        // --- Card Interactive Hover & Touch (Active) Animations ---
+        if (typeof gsap !== 'undefined') {
+            // 1. Smart Feature Cards (Scale in place)
+            const featureCards = document.querySelectorAll('.smart-features-grid .smart-feature');
+            featureCards.forEach(card => {
+                const onEnter = () => {
+                    gsap.to(card, {
+                        scale: 1.025,
+                        boxShadow: '0 30px 60px rgba(0, 0, 0, 0.22)',
+                        duration: 0.4,
+                        ease: 'power2.out'
+                    });
+                    const img = card.querySelector('.smart-feature-image');
+                    if (img) {
+                        gsap.to(img, {
+                            scale: 1.05,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                };
+
+                const onLeave = () => {
+                    gsap.to(card, {
+                        scale: 1.0,
+                        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.05)',
+                        duration: 0.4,
+                        ease: 'power2.out'
+                    });
+                    const img = card.querySelector('.smart-feature-image');
+                    if (img) {
+                        gsap.to(img, {
+                            scale: 1.0,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                };
+
+                const onPress = () => {
+                    gsap.to(card, {
+                        scale: 0.97,
+                        duration: 0.15,
+                        ease: 'power2.out'
+                    });
+                };
+
+                card.addEventListener('mouseenter', onEnter);
+                card.addEventListener('mouseleave', onLeave);
+                card.addEventListener('mousedown', onPress);
+                card.addEventListener('mouseup', onEnter);
+                
+                card.addEventListener('touchstart', () => {
+                    onPress();
+                }, { passive: true });
+                
+                card.addEventListener('touchend', () => {
+                    onLeave();
+                }, { passive: true });
+            });
+
+            // 2. Offer Cards (Animate internal contents, card container remains fully static)
+            const offerCards = document.querySelectorAll('.offer-showcase .offer-card');
+            offerCards.forEach(card => {
+                const illustration = card.querySelector('.offer-card-illustration');
+                const doodle = card.querySelector('.offer-card-doodle');
+                const btn = card.querySelector('.offer-card-btn');
+
+                const onEnter = () => {
+                    if (illustration) {
+                        gsap.to(illustration, {
+                            scale: 1.1,
+                            rotation: 5,
+                            duration: 0.4,
+                            ease: 'back.out(1.5)'
+                        });
+                    }
+                    if (doodle) {
+                        gsap.to(doodle, {
+                            rotation: 12,
+                            scale: 1.05,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (btn) {
+                        gsap.to(btn, {
+                            backgroundColor: '#1a1a1a',
+                            scale: 1.03,
+                            duration: 0.3,
+                            ease: 'power2.out'
+                        });
+                    }
+                };
+
+                const onLeave = () => {
+                    if (illustration) {
+                        gsap.to(illustration, {
+                            scale: 1.0,
+                            rotation: 0,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (doodle) {
+                        gsap.to(doodle, {
+                            rotation: 0,
+                            scale: 1.0,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    }
+                    if (btn) {
+                        gsap.to(btn, {
+                            backgroundColor: '#000000',
+                            scale: 1.0,
+                            duration: 0.3,
+                            ease: 'power2.out'
+                        });
+                    }
+                };
+
+                const onPress = () => {
+                    if (btn) {
+                        gsap.to(btn, {
+                            scale: 0.95,
+                            duration: 0.1,
+                            ease: 'power2.out'
+                        });
+                    }
+                };
+
+                card.addEventListener('mouseenter', onEnter);
+                card.addEventListener('mouseleave', onLeave);
+                card.addEventListener('mousedown', onPress);
+                card.addEventListener('mouseup', onEnter);
+
+                card.addEventListener('touchstart', () => {
+                    onEnter();
+                    onPress();
+                }, { passive: true });
+
+                card.addEventListener('touchend', () => {
+                    onLeave();
+                }, { passive: true });
+            });
+        }
+
+        // --- Footer Entry Animation ---
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const footerTimeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.main-card',
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+
+            footerTimeline.from('.main-card', {
+                y: 60,
+                opacity: 0,
+                duration: 1.0,
+                ease: 'power3.out'
+            })
+            .from('.main-card .footer-hero-section .hero-subtitle', {
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                ease: 'power3.out'
+            }, '-=0.6')
+            .from('.main-card .footer-hero-section .footer-hero-title', {
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            }, '-=0.4')
+            .from('.main-card .footer-hero-section .hero-actions', {
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                ease: 'power3.out'
+            }, '-=0.4')
+            .from('.main-card .footer-bottom .newsletter-section', {
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            }, '-=0.4')
+            .from('.main-card .footer-bottom .link-col', {
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                stagger: 0.1
+            }, '-=0.6');
+        }
+
+        if (floatingObject) {
+            let rotation = 0;
+            let lastTime = performance.now();
+            let lastScrollY = window.scrollY;
+            let scrollVelocity = 0;
+            let smoothBoost = 0;
+            let currentX = window.innerWidth * 0.5;
+            let currentY = window.innerHeight * 0.5;
+            let isParkedInGarage = false;
+
+            const baseSpeed = 8;
+            const boostStrength = 0.18;
+            const maxBoost = 220;
+
+            function getObjectTarget() {
+                const heroTarget = {
+                    x: window.innerWidth * 0.5,
+                    y: window.innerHeight * 0.5
+                };
+
+                if (!skillsSection || !skillsOrbit) {
+                    return heroTarget;
+                }
+
+                const sectionRect = skillsSection.getBoundingClientRect();
+                const orbitRect = skillsOrbit.getBoundingClientRect();
+                const isAfterSection = sectionRect.bottom < 0;
+                const garageTarget = {
+                    x: orbitRect.left + orbitRect.width * 0.5,
+                    y: orbitRect.top + orbitRect.height * 0.5
+                };
+                const viewportCenterY = window.innerHeight * 0.5;
+                const garageDistance = Math.max(garageTarget.y - viewportCenterY, 0);
+                const lockStartDistance = window.innerHeight * 0.34;
+                const rawProgress = 1 - garageDistance / lockStartDistance;
+                const progress = Math.min(Math.max(rawProgress, 0), 1);
+                const easedProgress = progress * progress * (3 - 2 * progress);
+                const isBeforeSection = sectionRect.top > window.innerHeight;
+
+                floatingObject.style.opacity = isAfterSection ? '0' : '1';
+
+                if (isBeforeSection) {
+                    isParkedInGarage = false;
+                    return heroTarget;
+                }
+
+                if (isAfterSection) {
+                    isParkedInGarage = true;
+                    return garageTarget;
+                }
+
+                if (progress >= 0.98) {
+                    isParkedInGarage = true;
+                    return garageTarget;
+                }
+
+                if (isParkedInGarage && garageTarget.y < window.innerHeight * 0.78) {
+                    return garageTarget;
+                }
+
+                isParkedInGarage = false;
+                return {
+                    x: heroTarget.x + (garageTarget.x - heroTarget.x) * easedProgress,
+                    y: heroTarget.y + (garageTarget.y - heroTarget.y) * easedProgress
+                };
+            }
+
+            function animateObject(time) {
+                const deltaTime = Math.min((time - lastTime) / 1000, 0.05);
+                const currentScrollY = window.scrollY;
+                const scrollDelta = currentScrollY - lastScrollY;
+
+                if (deltaTime > 0) {
+                    const instantVelocity = scrollDelta / deltaTime;
+                    scrollVelocity += (instantVelocity - scrollVelocity) * 0.22;
+                }
+
+                const targetBoost = Math.max(Math.min(scrollVelocity * boostStrength, maxBoost), -maxBoost);
+                smoothBoost += (targetBoost - smoothBoost) * 0.16;
+                scrollVelocity *= 0.88;
+
+                const target = getObjectTarget();
+                const followSpeed = isParkedInGarage ? 1 : 0.04;
+                currentX += (target.x - currentX) * followSpeed;
+                currentY += (target.y - currentY) * followSpeed;
+
+                rotation = (rotation + (baseSpeed + smoothBoost) * deltaTime) % 360;
+                floatingObject.style.left = `${currentX}px`;
+                floatingObject.style.top = `${currentY}px`;
+                floatingObject.style.transform = `translate(-50%, -50%) perspective(1200px) rotateY(${rotation}deg) rotateX(15deg)`;
+
+                lastScrollY = currentScrollY;
+                lastTime = time;
+                requestAnimationFrame(animateObject);
+            }
+
+            requestAnimationFrame(animateObject);
+        }
+
+        const kineticSection = document.querySelector('.kinetic-section');
+
+        if (kineticSection) {
+            const kineticInner = kineticSection.querySelector('.kinetic-inner');
+            const kineticItems = [...kineticSection.querySelectorAll('.kinetic-word, .kinetic-type, .kinetic-icon, .kinetic-smile')];
+            const scoreCardsStage = kineticSection.querySelector('.score-cards-stage');
+            const scoreRevealCard = kineticSection.querySelector('.score-reveal-card');
+            const scoreRevealCardTwo = kineticSection.querySelector('.score-reveal-card.card-two');
+            const scoreRevealCardThree = kineticSection.querySelector('.score-reveal-card.card-three');
+            const scoreRevealCardFour = kineticSection.querySelector('.score-reveal-card.card-four');
+            const scoreRevealCardFive = kineticSection.querySelector('.score-reveal-card.card-five');
+            let kineticPlayed = false;
+            let kineticPlaying = false;
+            let kineticRunId = 0;
+            let wasAfterCardScene = false;
+
+            function wait(ms) {
+                return new Promise((resolve) => window.setTimeout(resolve, ms));
+            }
+
+            function prepareTypeWords() {
+                kineticSection.querySelectorAll('.kinetic-type').forEach((word) => {
+                    const text = word.dataset.text || word.textContent.trim();
+                    word.dataset.text = text;
+                    word.innerHTML = text
+                        .split('')
+                        .map((char) => `<span class="kinetic-char">${char}</span>`)
+                        .join('');
+                });
+            }
+
+            function resetKineticSequence() {
+                kineticRunId += 1;
+                kineticPlaying = false;
+                kineticPlayed = false;
+                kineticItems.forEach((item) => item.classList.remove('is-visible'));
+                kineticSection.querySelectorAll('.kinetic-char').forEach((char) => char.classList.remove('is-visible'));
+            }
+
+            async function typeWord(word, runId) {
+                const chars = [...word.querySelectorAll('.kinetic-char')];
+
+                for (const char of chars) {
+                    if (runId !== kineticRunId) return false;
+                    char.classList.add('is-visible');
+                    await wait(42);
+                }
+
+                await wait(120);
+                return runId === kineticRunId;
+            }
+
+            async function revealItem(item, runId) {
+                if (runId !== kineticRunId) return false;
+                item.classList.add('is-visible');
+
+                if (item.classList.contains('kinetic-type')) {
+                    if (!(await typeWord(item, runId))) return false;
+                } else if (item.classList.contains('kinetic-icon')) {
+                    await wait(230);
+                } else if (item.classList.contains('kinetic-smile')) {
+                    await wait(520);
+                } else {
+                    await wait(180);
+                }
+
+                return runId === kineticRunId;
+            }
+
+            async function playKineticSequence() {
+                if (kineticPlayed || kineticPlaying) return;
+                kineticPlaying = true;
+                kineticRunId += 1;
+                const runId = kineticRunId;
+
+                for (const item of kineticItems) {
+                    if (!(await revealItem(item, runId))) {
+                        kineticPlaying = false;
+                        return;
+                    }
+                }
+
+                kineticPlaying = false;
+                kineticPlayed = true;
+                updateScoreRevealCard();
+            }
+
+            prepareTypeWords();
+
+            const kineticObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    playKineticSequence();
+                    observer.unobserve(entry.target);
+                });
+            }, { threshold: 0.28 });
+
+            kineticObserver.observe(kineticInner || kineticSection);
+
+            function clearCardStage() {
+                kineticSection.classList.add('no-card-transition');
+                kineticSection.classList.remove('card-stage', 'card-two-stage', 'card-three-stage', 'card-four-stage', 'card-five-stage');
+                scoreRevealCard.classList.remove('is-visible');
+                if (scoreRevealCardTwo) scoreRevealCardTwo.classList.remove('is-visible');
+                if (scoreRevealCardThree) scoreRevealCardThree.classList.remove('is-visible');
+                if (scoreRevealCardFour) scoreRevealCardFour.classList.remove('is-visible');
+                if (scoreRevealCardFive) scoreRevealCardFive.classList.remove('is-visible');
+                requestAnimationFrame(() => {
+                    kineticSection.classList.remove('no-card-transition');
+                });
+            }
+
+            function updateScoreRevealCard() {
+                if (!scoreRevealCard || !scoreCardsStage) return;
+                const stageRect = scoreCardsStage.getBoundingClientRect();
+                const stageTravel = Math.max(stageRect.height - window.innerHeight, 1);
+                const stageProgress = Math.max(0, Math.min(-stageRect.top / stageTravel, 1));
+                const stageInView = stageRect.top < window.innerHeight && stageRect.bottom > 0;
+                const progress = stageProgress;
+                const isPastCards = stageRect.bottom <= 0;
+                const isBeforeCards = stageRect.top >= window.innerHeight;
+                const cardIntroStart = window.matchMedia('(max-width: 600px)').matches ? 0.08 : 0.06;
+                const showCard = kineticPlayed && stageInView && progress > cardIntroStart;
+                const returningFromNextSection = wasAfterCardScene && showCard;
+
+                if (returningFromNextSection) {
+                    kineticSection.classList.add('no-card-transition');
+                    requestAnimationFrame(() => {
+                        kineticSection.classList.remove('no-card-transition');
+                    });
+                }
+
+                wasAfterCardScene = isPastCards;
+
+                if (isPastCards && kineticPlayed) {
+                    kineticSection.classList.add('card-stage', 'card-two-stage', 'card-three-stage', 'card-four-stage', 'card-five-stage');
+                    scoreRevealCard.classList.add('is-visible');
+                    if (scoreRevealCardTwo) scoreRevealCardTwo.classList.add('is-visible');
+                    if (scoreRevealCardThree) scoreRevealCardThree.classList.add('is-visible');
+                    if (scoreRevealCardFour) scoreRevealCardFour.classList.add('is-visible');
+                    if (scoreRevealCardFive) scoreRevealCardFive.classList.add('is-visible');
+                    return;
+                }
+
+                if (isBeforeCards || !stageInView || !showCard) {
+                    clearCardStage();
+                    return;
+                }
+
+                const isMobileCards = window.matchMedia('(max-width: 600px)').matches;
+                const secondCardStart = isMobileCards ? 0.22 : 0.2;
+                const thirdCardStart = isMobileCards ? 0.42 : 0.4;
+                const fourthCardStart = isMobileCards ? 0.62 : 0.6;
+                const fifthCardStart = isMobileCards ? 0.82 : 0.8;
+                const showSecondCard = kineticPlayed && progress > secondCardStart;
+                const showThirdCard = kineticPlayed && progress > thirdCardStart;
+                const showFourthCard = kineticPlayed && progress > fourthCardStart;
+                const showFifthCard = kineticPlayed && progress > fifthCardStart;
+                kineticSection.classList.toggle('card-stage', showCard);
+                kineticSection.classList.toggle('card-two-stage', showSecondCard);
+                kineticSection.classList.toggle('card-three-stage', showThirdCard);
+                kineticSection.classList.toggle('card-four-stage', showFourthCard);
+                kineticSection.classList.toggle('card-five-stage', showFifthCard);
+                scoreRevealCard.classList.toggle('is-visible', showCard);
+                if (scoreRevealCardTwo) {
+                    scoreRevealCardTwo.classList.toggle('is-visible', showSecondCard);
+                }
+                if (scoreRevealCardThree) {
+                    scoreRevealCardThree.classList.toggle('is-visible', showThirdCard);
+                }
+                if (scoreRevealCardFour) {
+                    scoreRevealCardFour.classList.toggle('is-visible', showFourthCard);
+                }
+                if (scoreRevealCardFive) {
+                    scoreRevealCardFive.classList.toggle('is-visible', showFifthCard);
+                }
+
+            }
+
+            window.addEventListener('scroll', updateScoreRevealCard, { passive: true });
+            window.addEventListener('resize', updateScoreRevealCard);
+            updateScoreRevealCard();
+        }
+
+        // ─── Island Menu JS Implementation ───
+        (function() {
+            let isOpen = false;
+            let tl;
+
+            function initMenu() {
+                if (tl) tl.revert();
+                
+                const expandedWidth = Math.min(window.innerWidth * 0.9, 400);
+
+                tl = gsap.timeline({ paused: true })
+                    .set('.menu-overlay', { pointerEvents: 'auto' })
+                    .to('.island', { width: expandedWidth, duration: 0.8, ease: 'back.out(2)', easeReverse: 'power2.out' }, 0)
+                    .to('.island-logo', { opacity: 1, rotation: 180, duration: 0.5, ease: 'back.out', easeReverse: 'power4.out' }, 0.12)
+                    .to('.bar-mid', { opacity: 0, duration: 0.15, ease: 'power2.in', easeReverse: 'power2.out' }, 0)
+                    .to('.bar-top', { attr: { x1: 3, y1: 3, x2: 13, y2: 13 }, duration: 0.28, ease: 'power3.inOut' }, 0)
+                    .to('.bar-bot', { attr: { x1: 13, y1: 3, x2: 3, y2: 13 }, duration: 0.28, ease: 'power3.inOut' }, 0)
+                    .to('.menu-backdrop', { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0)
+                    .from('.menu-panel', { autoAlpha: 0, yPercent: -10, scale: 0.6, duration: 0.8, transformOrigin: 'top center', ease: 'back.out(2)', easeReverse: 'power3.out' }, 0.1)
+                    .from('.menu-link', { opacity: 0, y: 6, duration: 0.32, ease: 'power2.out', easeReverse: 'power2.out', stagger: 0.05 }, 0.22);
+            }
+
+            initMenu();
+            window.addEventListener('resize', initMenu);
+
+            function toggleMenu() {
+                isOpen = !isOpen;
+                const btn = document.getElementById('menuToggle');
+                if (btn) {
+                    btn.setAttribute('aria-expanded', isOpen);
+                    btn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+                }
+                document.querySelectorAll('.menu-link').forEach(l => l.setAttribute('tabindex', isOpen ? '0' : '-1'));
+                if (isOpen) {
+                    tl.timeScale(1).play();
+                } else {
+                    tl.eventCallback('onReverseComplete', () => gsap.set('.menu-overlay', { pointerEvents: 'none' }));
+                    tl.timeScale(1).reverse();
+                }
+            }
+
+            const menuToggleBtn = document.getElementById('menuToggle');
+            if (menuToggleBtn) {
+                menuToggleBtn.addEventListener('click', toggleMenu);
+            }
+            
+            const backdrop = document.querySelector('.menu-backdrop');
+            if (backdrop) {
+                backdrop.addEventListener('click', () => { if (isOpen) toggleMenu(); });
+            }
+
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && isOpen) { 
+                    toggleMenu(); 
+                    if (menuToggleBtn) menuToggleBtn.focus(); 
+                }
+            });
+
+            const overlay = document.querySelector('.menu-overlay');
+            if (overlay) {
+                overlay.addEventListener('keydown', e => {
+                    if (!isOpen || e.key !== 'Tab') return;
+                    const focusable = [...document.querySelectorAll('.menu-link[tabindex="0"]')];
+                    if (!focusable.length) return;
+                    const [first, last] = [focusable[0], focusable[focusable.length - 1]];
+                    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+                });
+            }
+        })();
+
+    </script>
+</body>
+</html>

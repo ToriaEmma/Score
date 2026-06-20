@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCORE - Contact & Formulaire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=1.0.4">
+    <style>
+        /* Modern minimalist contact layout styles */
+        .contact-container {
+            background-color: var(--white);
+            color: var(--text-main);
+            width: 100%;
+            box-sizing: border-box;
+            padding: clamp(60px, 8vw, 120px) clamp(24px, 5vw, 70px) clamp(60px, 8vw, 120px) clamp(24px, 5vw, 70px);
+            position: relative;
+        }
+
+        .contact-inner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .contact-title-section {
+            margin-bottom: clamp(60px, 8vw, 100px);
+        }
+
+        .contact-main-title {
+            font-family: var(--font-sans);
+            font-size: clamp(56px, 10vw, 130px);
+            line-height: 0.85;
+            margin: 0 0 24px 0;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            color: #000000;
+            text-transform: none;
+        }
+
+        .contact-subtitle {
+            font-family: var(--font-sans);
+            font-size: clamp(16px, 1.4vw, 20px);
+            font-weight: 400;
+            color: #475467;
+            margin: 0;
+            line-height: 1.5;
+            max-width: 650px;
+        }
+
+        /* 2-Column Grid Layout */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: clamp(48px, 8vw, 100px);
+            align-items: start;
+        }
+
+        .contact-info-column {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .contact-form-column {
+            width: 100%;
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .contact-info-column {
+                grid-column: auto;
+                grid-row: auto;
+            }
+            .contact-form-column {
+                grid-column: auto;
+                grid-row: auto;
+            }
+        }
+
+        .contact-meta-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .contact-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .contact-meta-item .meta-label {
+            font-family: var(--font-sans);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #98a2b3;
+        }
+
+        .contact-meta-item .meta-value {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            font-weight: 500;
+            color: #344054;
+            line-height: 1.45;
+        }
+
+        .contact-meta-item .meta-value a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-meta-item .meta-value a:hover {
+            color: var(--lime);
+        }
+
+        .contact-info-block {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .info-block-title {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 800;
+            color: #101828;
+            margin: 0 0 10px 0;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        .info-block-desc {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            line-height: 1.5;
+            color: #475467;
+            margin: 0 0 20px 0;
+        }
+
+        .synergies-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .synergies-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            color: #101828;
+            border: 1.5px solid #101828;
+            font-family: var(--font-sans);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            width: fit-content;
+        }
+
+        .synergies-btn:hover {
+            background-color: #101828;
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+
+
+
+        .contact-form-block {
+            width: 100%;
+        }
+
+        .form-block-title {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 800;
+            color: #101828;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .form-block-desc {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            line-height: 1.5;
+            color: #475467;
+            margin: 0 0 32px 0;
+        }
+
+        .classic-contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .form-section-title {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 800;
+            color: #98a2b3;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+            border-bottom: 1.5px solid #eaecf0;
+            padding-bottom: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 32px;
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .form-group[style*="grid-column"] {
+                grid-column: span 1 !important;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .form-group label {
+            font-family: var(--font-sans);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #475467;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 0;
+            border: none;
+            border-bottom: 1.5px solid #d0d5dd;
+            background-color: transparent;
+            border-radius: 0;
+            font-family: var(--font-sans);
+            font-size: 16px;
+            color: #101828;
+            transition: border-color 0.2s ease-in-out;
+            outline: none;
+        }
+
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475467' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: 16px;
+            cursor: pointer;
+            padding-right: 24px;
+        }
+
+        .form-group select:invalid {
+            color: #98a2b3;
+            opacity: 0.7;
+        }
+
+        .form-group select option {
+            background-color: var(--white);
+            color: #101828;
+            font-family: var(--font-sans);
+            font-size: 15px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #98a2b3;
+            opacity: 0.7;
+        }
+
+        .form-group input:hover,
+        .form-group textarea:hover,
+        .form-group select:hover {
+            border-bottom-color: #667085;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-bottom-color: #101828;
+        }
+
+        /* Custom Checkbox Styling */
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            width: 100%;
+        }
+
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkbox-checkmark {
+            width: 18px;
+            height: 18px;
+            background-color: transparent;
+            border: 1.5px solid #d0d5dd;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease-in-out;
+            margin-top: 2px;
+        }
+
+        .checkbox-container:hover input ~ .checkbox-checkmark {
+            border-color: #667085;
+        }
+
+        .checkbox-container input:checked ~ .checkbox-checkmark {
+            background-color: #101828;
+            border-color: #101828;
+        }
+
+        .checkbox-checkmark::after {
+            content: "";
+            display: none;
+            width: 4px;
+            height: 8px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-bottom: 2px;
+        }
+
+        .checkbox-container input:checked ~ .checkbox-checkmark::after {
+            display: block;
+        }
+
+        .checkbox-label {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            line-height: 1.45;
+            color: #475467;
+            font-weight: 500;
+        }
+
+        .contact-submit-btn {
+            align-self: flex-start;
+            background-color: #101828;
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            padding: 14px 32px;
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            margin-top: 10px;
+        }
+
+        .contact-submit-btn:hover {
+            background-color: var(--lime);
+            color: var(--text-main);
+            transform: translateY(-1px);
+        }
+
+        /* Bottom Giant Info Row */
+        .contact-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1.5px solid #eaecf0;
+            padding-top: 48px;
+            margin-top: clamp(60px, 12vw, 120px);
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .bottom-giant-link {
+            font-family: var(--font-sans);
+            font-size: clamp(24px, 4vw, 44px);
+            font-weight: 800;
+            color: #101828;
+            text-decoration: none;
+            letter-spacing: -0.04em;
+            line-height: 1.0;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .bottom-giant-link:hover {
+            color: var(--lime);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .contact-bottom-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+
+        /* Custom success toast styling */
+        .contact-success-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: #1a1a1a;
+            color: var(--white);
+            border: 2px solid var(--lime);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 9999;
+            max-width: 400px;
+            transform: translateY(150%) scale(0.9);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .contact-success-toast.show {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .toast-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .toast-icon {
+            width: 20px;
+            height: 20px;
+            stroke: var(--lime);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .toast-text h4 {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 800;
+            margin: 0 0 4px 0;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+
+        .toast-text p {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 500;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+
+        .toast-close {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 16px;
+            cursor: pointer;
+            padding: 4px;
+            align-self: flex-start;
+            transition: color 0.2s;
+        }
+
+        .toast-close:hover {
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="hero-wrapper contact-hero-header">
+        <!-- Logo en haut à gauche -->
+        <a href="index.html" style="display: block;">
+            <img src="logo.png" alt="SCORE Logo" class="top-left-logo">
+        </a>
+
+        <!-- Navigation Supérieure -->
+        <nav class="hero-nav">
+            <div class="nav-pill">
+                <a href="index.html" class="nav-link">ACCUEIL</a>
+                <a href="index.html#smart-features-title" class="nav-link">SERVICES <span class="badge">QA</span></a>
+                <a href="index.html#offer-intro-title" class="nav-link">OFFRES</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="contact.html" class="nav-link active">CONTACT</a>
+            </div>
+            
+            <!-- Island Menu -->
+            <div class="island">
+              <div class="island-logo--cont"><img class="island-logo" src="logo.png" alt="SCORE Logo" /></div>
+              <button class="menu-btn" id="menuToggle" aria-expanded="false" aria-controls="menu-overlay" aria-label="Open navigation menu">
+                <div class="button-cont">
+                  <svg id="menuIcon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <line class="bar bar-top" x1="2" y1="5" x2="14" y2="5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+                    <line class="bar bar-mid" x1="2" y1="8" x2="14" y2="8" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+                    <line class="bar bar-bot" x1="2" y1="11" x2="14" y2="11" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+            
+            <a href="index.html#score-motion" style="text-decoration: none;">
+                <button class="join-btn">
+                    AUDIT 
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </button>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Contact Container -->
+    <main class="contact-container">
+        <div class="contact-inner-content">
+            
+            <!-- Heading Section -->
+            <div class="contact-title-section">
+                <h1 class="contact-main-title">Contactez-nous</h1>
+                <p class="contact-subtitle">Un projet d'assurance qualité, de développement web ou de digitalisation ? N'hésitez pas à nous contacter.</p>
+            </div>
+
+            <!-- Grid Layout -->
+            <div class="contact-grid">
+                
+                <!-- Right Column: Formulaire de Soumission d'Application (first in HTML order for mobile stack) -->
+                <div class="contact-form-column">
+                    <div class="contact-form-block">
+                        <h2 class="form-block-title">Formulaire de soumission</h2>
+                        <p class="form-block-desc">Remplissez ce formulaire et notre équipe vous recontactera sous 72 heures ouvrées.</p>
+                        
+                        <form class="classic-contact-form" onsubmit="event.preventDefault(); showToast(); this.reset();">
+                            
+                            <!-- Informations entreprise -->
+                            <div class="form-section">
+                                <h3 class="form-section-title">Informations entreprise</h3>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="contact-company">Nom de l'entreprise</label>
+                                        <input type="text" id="contact-company" name="company" placeholder="Ex: Entreprise SAS" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-name">Nom du responsable</label>
+                                        <input type="text" id="contact-name" name="name" placeholder="Votre nom et prénom" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-email">Email</label>
+                                        <input type="email" id="contact-email" name="email" placeholder="votre.email@exemple.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-phone">Téléphone</label>
+                                        <input type="tel" id="contact-phone" name="phone" placeholder="01 53 75 50 50" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Informations application -->
+                            <div class="form-section" style="margin-top: 10px;">
+                                <h3 class="form-section-title">Informations application</h3>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="contact-app-name">Nom de l'application</label>
+                                        <input type="text" id="contact-app-name" name="app-name" placeholder="Ex: MyQAApp" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-app-type">Type d'application</label>
+                                        <select id="contact-app-type" name="app-type" required>
+                                            <option value="" disabled selected hidden>Choisir le type...</option>
+                                            <option value="site-web">Site web</option>
+                                            <option value="android">Application mobile Android</option>
+                                            <option value="ios">Application mobile iOS</option>
+                                            <option value="metier">Application métier</option>
+                                            <option value="autre">Autre</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-app-url">URL de l'application</label>
+                                        <input type="text" id="contact-app-url" name="app-url" placeholder="https://example.com ou lien de téléchargement" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-app-creds">Identifiants de test (facultatif)</label>
+                                        <input type="text" id="contact-app-creds" name="app-creds" placeholder="Ex: login / password">
+                                    </div>
+                                    <div class="form-group" style="grid-column: span 2;">
+                                        <label for="contact-message">Description du besoin</label>
+                                        <textarea id="contact-message" name="message" placeholder="Décrivez vos besoins de tests (fonctionnels, régression, etc.)" rows="3" required></textarea>
+                                    </div>
+                                    <div class="form-group" style="grid-column: span 2;">
+                                        <label for="contact-comments">Commentaires supplémentaires</label>
+                                        <textarea id="contact-comments" name="comments" placeholder="Autres détails à préciser à notre équipe..." rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Validation Checkbox -->
+                            <div class="form-group" style="margin-top: 10px;">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="authorize" required>
+                                    <span class="checkbox-checkmark"></span>
+                                    <span class="checkbox-label">J'autorise SCORE à accéder à mon application uniquement dans le cadre de son évaluation.</span>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="contact-submit-btn">
+                                Soumettre l'application
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Left Column: Horaires & Services & Synergies (second in HTML order but styled left on desktop) -->
+                <div class="contact-info-column">
+                    <!-- Horaires d'ouverture -->
+                    <div class="contact-meta-item">
+                        <span class="meta-label">Horaires d'ouverture</span>
+                        <span class="meta-value">Du lundi au vendredi<br>De 9h à 18h30</span>
+                    </div>
+
+                    <!-- Services & Synergies -->
+                    <div class="contact-info-block">
+                        <h2 class="info-block-title">Services & Synergies</h2>
+                        <p class="info-block-desc">Partagez vos suggestions pour améliorer nos outils, ou postulez pour rejoindre l'aventure SCORE.</p>
+                        <div class="synergies-links">
+                            <a href="mailto:obtenezinfoscore@gmail.com?subject=Suggestion" class="synergies-btn">ENVOYER UNE SUGGESTION</a>
+                            <a href="mailto:obtenezinfoscore@gmail.com?subject=Recrutement" class="synergies-btn">POSTULER CHEZ SCORE</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Row: Huge email & phone number -->
+            <div class="contact-bottom-row">
+                <a href="mailto:obtenezinfoscore@gmail.com" class="bottom-giant-link">obtenezinfoscore@gmail.com</a>
+                <a href="tel:0153755050" class="bottom-giant-link">01 53 75 50 50</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menu-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <div class="menu-backdrop"></div>
+      <div class="menu-panel">
+        <nav>
+          <a class="menu-link" href="index.html" tabindex="-1"><span>Accueil</span><span class="link-num">01</span></a>
+          <a class="menu-link" href="index.html#smart-features-title" tabindex="-1"><span>Services</span><span class="link-num">02</span></a>
+          <a class="menu-link" href="index.html#offer-intro-title" tabindex="-1"><span>Offres</span><span class="link-num">03</span></a>
+          <a class="menu-link" href="faq.html" tabindex="-1"><span>FAQ</span><span class="link-num">04</span></a>
+          <a class="menu-link" href="contact.html" tabindex="-1"><span>Contact</span><span class="link-num">05</span></a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Black Footer Block -->
+    <section class="contact-footer-block">
+        <div class="contact-footer-inner">
+            
+            <!-- Large Title -->
+            <h2 class="contact-footer-title">
+                Travaillons<br>
+                ensemble.
+            </h2>
+
+            <!-- Have a project? Arrow -->
+            <a href="mailto:obtenezinfoscore@gmail.com" class="contact-footer-cta">
+                <span>Un projet en tête ?</span>
+                <span class="contact-footer-line-arrow">
+                    <span class="contact-footer-line"></span>
+                    <span class="contact-footer-arrow"></span>
+                </span>
+                <span>Dites-nous tout</span>
+            </a>
+
+            <!-- Bottom Horizontal Row with links -->
+            <div class="contact-footer-links-row">
+                <div class="contact-footer-links">
+                    <a href="mailto:obtenezinfoscore@gmail.com" class="contact-footer-link">E-Mail</a>
+                    <a href="https://linkedin.com" target="_blank" class="contact-footer-link">LinkedIn</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer section (La carte blanche intacte par défaut de la page d'accueil) -->
+    <footer class="main-card">
+
+        <div class="footer-hero-section">
+            <p class="hero-subtitle">
+                SOUMETTEZ VOTRE APPLICATION WEB OU MOBILE.<br>
+                PREMIER RETOUR SOUS 72 HEURES OUVRÉES.
+            </p>
+            
+            <h1 class="footer-hero-title">
+                Obtenez un<br>
+                audit gratuit
+            </h1>
+            
+            <div class="hero-actions">
+                <a href="index.html#score-motion" class="btn-primary-footer" style="text-decoration: none;">
+                    SOUMETTRE UNE APP
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </a>
+                <a href="index.html#offer-intro-title" class="btn-secondary-footer" style="text-decoration: none;">
+                    VOIR LES OFFRES
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="newsletter-section">
+                <h2 class="newsletter-title">Parlez-nous de votre application</h2>
+                <form class="subscribe-form" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="VOTRE EMAIL" required>
+                    <button type="submit">
+                        ENVOYER
+                        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            
+            <div class="links-section">
+                <div class="link-col">
+                    <h3>Social</h3>
+                    <a href="#">LINKEDIN</a>
+                </div>
+                
+                <div class="link-col">
+                    <h3>Pages</h3>
+                    <a href="index.html">ACCUEIL</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="index.html#offer-intro-title">OFFRES</a>
+                    <a href="index.html#smart-features-title">SERVICES</a>
+                </div>
+                
+                <div class="link-col">
+                    <h3>Contact</h3>
+                    <a href="mailto:obtenezinfoscore@gmail.com">EMAIL</a>
+                    <a href="tel:0153755050">01 53 75 50 50</a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Success Toast Notification -->
+    <div class="contact-success-toast" id="successToast">
+        <div class="toast-content">
+            <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <div class="toast-text">
+                <h4>Demande enregistrée !</h4>
+                <p>Votre demande a bien été enregistrée. Notre équipe analysera votre application et vous transmettra un retour sous 72 heures ouvrées.</p>
+            </div>
+        </div>
+        <button class="toast-close" onclick="closeToast()">✕</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        // ─── Island Menu JS Implementation ───
+        (function() {
+            let isOpen = false;
+            let tl;
+
+            function initMenu() {
+                if (tl) tl.revert();
+                
+                const expandedWidth = Math.min(window.innerWidth * 0.9, 400);
+
+                tl = gsap.timeline({ paused: true })
+                    .set('.menu-overlay', { pointerEvents: 'auto' })
+                    .to('.island', { width: expandedWidth, duration: 0.8, ease: 'back.out(2)', easeReverse: 'power2.out' }, 0)
+                    .to('.island-logo', { opacity: 1, rotation: 180, duration: 0.5, ease: 'back.out', easeReverse: 'power4.out' }, 0.12)
+                    .to('.bar-mid', { opacity: 0, duration: 0.15, ease: 'power2.in', easeReverse: 'power2.out' }, 0)
+                    .to('.bar-top', { attr: { x1: 3, y1: 3, x2: 13, y2: 13 }, duration: 0.28, ease: 'power3.inOut' }, 0)
+                    .to('.bar-bot', { attr: { x1: 13, y1: 3, x2: 3, y2: 13 }, duration: 0.28, ease: 'power3.inOut' }, 0)
+                    .to('.menu-backdrop', { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0)
+                    .from('.menu-panel', { autoAlpha: 0, yPercent: -10, scale: 0.6, duration: 0.8, transformOrigin: 'top center', ease: 'back.out(2)', easeReverse: 'power3.out' }, 0.1)
+                    .from('.menu-link', { opacity: 0, y: 6, duration: 0.32, ease: 'power2.out', easeReverse: 'power2.out', stagger: 0.05 }, 0.22);
+            }
+
+            initMenu();
+            window.addEventListener('resize', initMenu);
+
+            function toggleMenu() {
+                isOpen = !isOpen;
+                const btn = document.getElementById('menuToggle');
+                if (btn) {
+                    btn.setAttribute('aria-expanded', isOpen);
+                    btn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+                }
+                document.querySelectorAll('.menu-link').forEach(l => l.setAttribute('tabindex', isOpen ? '0' : '-1'));
+                if (isOpen) {
+                    tl.timeScale(1).play();
+                } else {
+                    tl.eventCallback('onReverseComplete', () => gsap.set('.menu-overlay', { pointerEvents: 'none' }));
+                    tl.timeScale(1).reverse();
+                }
+            }
+
+            const menuToggleBtn = document.getElementById('menuToggle');
+            if (menuToggleBtn) {
+                menuToggleBtn.addEventListener('click', toggleMenu);
+            }
+            
+            const backdrop = document.querySelector('.menu-backdrop');
+            if (backdrop) {
+                backdrop.addEventListener('click', () => { if (isOpen) toggleMenu(); });
+            }
+
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && isOpen) { 
+                    toggleMenu(); 
+                    if (menuToggleBtn) menuToggleBtn.focus(); 
+                }
+            });
+
+            const overlay = document.querySelector('.menu-overlay');
+            if (overlay) {
+                overlay.addEventListener('keydown', e => {
+                    if (!isOpen || e.key !== 'Tab') return;
+                    const focusable = [...document.querySelectorAll('.menu-link[tabindex="0"]')];
+                    if (!focusable.length) return;
+                    const [first, last] = [focusable[0], focusable[focusable.length - 1]];
+                    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+                });
+            }
+        })();
+
+        // Toast Functions
+        function showToast() {
+            const toast = document.getElementById('successToast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                closeToast();
+            }, 6000);
+        }
+
+        function closeToast() {
+            const toast = document.getElementById('successToast');
+            toast.classList.remove('show');
+        }
+
+        // Prefill contact form based on offer query param
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const offer = params.get('offer');
+            const messageTextarea = document.getElementById('contact-message');
+            if (offer && messageTextarea) {
+                if (offer === 'decouverte') {
+                    messageTextarea.value = "Bonjour, je souhaite commencer l'offre d'Évaluation gratuite (Découverte) pour mon application. Pouvez-vous me recontacter ?";
+                } else if (offer === 'standard') {
+                    messageTextarea.value = "Bonjour, je souhaite souscrire à l'offre Standard (Assurance qualité complète) pour mon application. Pouvez-vous me recontacter ?";
+                }
+            }
+
+            // --- Footer Entry Animation ---
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+                const footerTimeline = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '.main-card',
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    }
+                });
+
+                footerTimeline.from('.main-card', {
+                    y: 60,
+                    opacity: 0,
+                    duration: 1.0,
+                    ease: 'power3.out'
+                })
+                .from('.main-card .footer-hero-section .hero-subtitle', {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.6,
+                    ease: 'power3.out'
+                }, '-=0.6')
+                .from('.main-card .footer-hero-section .footer-hero-title', {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                }, '-=0.4')
+                .from('.main-card .footer-hero-section .hero-actions', {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.6,
+                    ease: 'power3.out'
+                }, '-=0.4')
+                .from('.main-card .footer-bottom .newsletter-section', {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                }, '-=0.4')
+                .from('.main-card .footer-bottom .link-col', {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    stagger: 0.1
+                }, '-=0.6');
+            }
+        });
+    </script>
+</body>
+</html>

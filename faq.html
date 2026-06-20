@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCORE - FAQ & Assurance Qualité</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Shared stylesheet containing default styles of the homepage -->
+    <link rel="stylesheet" href="style.css?v=1.0.4">
+    
+    <style>
+        /* Overrides to adapt the default theme to a white background FAQ */
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+        }
+
+        /* Reusable Header with height overrides */
+        .contact-hero-header {
+            border: none !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
+
+        /* --- FAQ CONTAINER (Style Photo: Fond Blanc) --- */
+        .faq-container {
+            background-color: var(--white);
+            padding: clamp(60px, 8vw, 100px) clamp(24px, 5vw, 70px) clamp(80px, 8vw, 120px) clamp(24px, 5vw, 70px);
+            position: relative;
+            z-index: 2;
+            min-height: 70vh;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .faq-inner-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Heading Row: FAQ left, (questions fréquentes) right */
+        .faq-heading-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: clamp(40px, 5vw, 60px);
+            width: 100%;
+        }
+
+        .faq-blue-title {
+            font-family: var(--font-sans);
+            font-size: clamp(42px, 5vw, 72px);
+            font-weight: 800;
+            line-height: 1;
+            margin: 0;
+            color: var(--text-main); /* Noir par défaut */
+            letter-spacing: -0.04em;
+        }
+
+        .faq-subtitle-parenthesis {
+            font-family: var(--font-sans);
+            font-size: clamp(14px, 1.1vw, 17px);
+            font-weight: 500;
+            color: #475467; /* Gris sombre discret */
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        /* Accordion List with dividers top/bottom */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            border-top: 1px solid #e4e7ec; /* Ligne au-dessus du premier élément */
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e4e7ec; /* Lignes entre et au-dessous */
+            padding: clamp(20px, 2vw, 28px) 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .faq-item summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            list-style: none;
+            gap: clamp(16px, 2vw, 24px);
+            user-select: none;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* 4-pointed star and text container */
+        .faq-question-left-wrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .faq-star-icon {
+            width: 12px;
+            height: 12px;
+            fill: #000000;
+            flex-shrink: 0;
+        }
+
+        .faq-question {
+            font-family: var(--font-sans);
+            font-size: clamp(15px, 1.2vw, 19px);
+            font-weight: 600;
+            color: #0a0d14;
+            margin: 0;
+            line-height: 1.35;
+            letter-spacing: -0.02em;
+        }
+
+        /* Plus Button Circle */
+        .faq-plus-circle {
+            width: 36px;
+            height: 36px;
+            background-color: var(--lime);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background-color 0.2s;
+        }
+
+        .faq-plus-icon {
+            width: 14px;
+            height: 14px;
+            stroke: var(--text-main);
+            stroke-width: 3.5;
+            stroke-linecap: round;
+            transform-origin: center;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Content wrapper (animated via GSAP) */
+        .faq-content-wrapper {
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .faq-answer {
+            font-family: var(--font-sans);
+            font-size: clamp(14px, 1vw, 16px);
+            line-height: 1.5;
+            color: #475467;
+            margin: 0;
+            padding: 14px 0 0 28px; /* Indenté après l'étoile */
+            max-width: 90%;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        /* --- RESPONSIVE OVERRIDES --- */
+        @media (max-width: 1200px) {
+            .contact-hero-header {
+                height: 90px !important;
+            }
+            .main-card {
+                margin: 56px 0 0;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .contact-hero-header {
+                height: 80px !important;
+                border: none !important;
+                border-bottom: none !important;
+                box-shadow: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero-header {
+                height: 70px !important;
+            }
+            .main-card {
+                padding: 60px 20px 40px 20px;
+                margin-top: 20px;
+            }
+        }
+
+        /* --- TERMS & LICENSING BANNER --- */
+        .licensing-banner {
+            position: relative;
+            z-index: 2;
+            background-color: var(--bg-dark);
+            padding: clamp(80px, 8vw, 120px) 4vw;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            box-sizing: border-box;
+            color: var(--white);
+        }
+
+        .licensing-tag {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+        }
+
+        .licensing-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--lime);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .licensing-heading {
+            font-family: var(--font-sans);
+            font-size: clamp(28px, 4vw, 52px);
+            line-height: 1.15;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.4); /* Gray/muted text */
+            max-width: 800px;
+            margin: 0 0 40px 0;
+            letter-spacing: -0.04em;
+        }
+
+        .licensing-bold {
+            color: var(--white); /* Bold white text */
+            font-weight: 800;
+        }
+
+        .licensing-btn {
+            background-color: var(--white);
+            color: var(--text-main);
+            border: none;
+            border-radius: 50px;
+            padding: 18px 36px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s;
+        }
+
+        .licensing-btn:hover {
+            transform: scale(1.05);
+            background-color: #f2f2f2;
+        }
+
+        .licensing-arrow {
+            width: 12px;
+            height: 12px;
+            stroke: currentColor;
+            stroke-width: 3.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="hero-wrapper contact-hero-header">
+        <!-- Logo en haut à gauche -->
+        <a href="index.html" style="display: block;">
+            <img src="logo.png" alt="SCORE Logo" class="top-left-logo">
+        </a>
+
+        <!-- Navigation Supérieure -->
+        <nav class="hero-nav">
+            <div class="nav-pill">
+                <a href="index.html" class="nav-link">ACCUEIL</a>
+                <a href="index.html#smart-features-title" class="nav-link">SERVICES <span class="badge">QA</span></a>
+                <a href="index.html#offer-intro-title" class="nav-link">OFFRES</a>
+                <a href="faq.html" class="nav-link active">FAQ</a>
+                <a href="contact.html" class="nav-link">CONTACT</a>
+            </div>
+            
+            <!-- Island Menu -->
+            <div class="island">
+              <div class="island-logo--cont"><img class="island-logo" src="logo.png" alt="SCORE Logo" /></div>
+              <button class="menu-btn" id="menuToggle" aria-expanded="false" aria-controls="menu-overlay" aria-label="Open navigation menu">
+                <div class="button-cont">
+                  <svg id="menuIcon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <line class="bar bar-top" x1="2" y1="5" x2="14" y2="5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+                    <line class="bar bar-mid" x1="2" y1="8" x2="14" y2="8" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+                    <line class="bar bar-bot" x1="2" y1="11" x2="14" y2="11" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+            
+            <a href="index.html#score-motion" style="text-decoration: none;">
+                <button class="join-btn">
+                    AUDIT 
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </button>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main FAQ section -->
+    <main class="faq-container">
+        <div class="faq-inner-content">
+        
+        <!-- Heading Row: FAQ left, (questions fréquentes) right -->
+        <div class="faq-heading-row">
+            <h1 class="faq-blue-title">FAQ</h1>
+            <p class="faq-subtitle-parenthesis">(questions fréquentes)</p>
+        </div>
+        
+        <!-- Accordion List with dividers -->
+        <div class="faq-list">
+            
+            <!-- Item 1 -->
+            <details class="faq-item" name="score-faq">
+                <summary>
+                    <div class="faq-question-left-wrap">
+                        <!-- 4-pointed star icon SVG -->
+                        <svg viewBox="0 0 24 24" class="faq-star-icon">
+                            <path d="M12 0 C12 8, 16 12, 24 12 C16 12, 12 16, 12 24 C12 16, 8 12, 0 12 C8 12, 12 8, 12 0 Z"/>
+                        </svg>
+                        <h2 class="faq-question">Comment fonctionne l'évaluation gratuite de mon application sous 72h ?</h2>
+                    </div>
+                    <div class="faq-plus-circle">
+                        <!-- Plus icon SVG -->
+                        <svg viewBox="0 0 24 24" class="faq-plus-icon">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                </summary>
+                <div class="faq-content-wrapper">
+                    <p class="faq-answer">
+                        Notre équipe QA effectue une analyse préliminaire et identifie les anomalies fonctionnelles et ergonomiques visibles de votre site web ou application mobile. Vous recevez un rapport synthétique clair directement par email sous 72 heures ouvrées.
+                    </p>
+                </div>
+            </details>
+
+            <!-- Item 2 -->
+            <details class="faq-item" name="score-faq">
+                <summary>
+                    <div class="faq-question-left-wrap">
+                        <svg viewBox="0 0 24 24" class="faq-star-icon">
+                            <path d="M12 0 C12 8, 16 12, 24 12 C16 12, 12 16, 12 24 C12 16, 8 12, 0 12 C8 12, 12 8, 12 0 Z"/>
+                        </svg>
+                        <h2 class="faq-question">Quels types d'applications SCORE peut-il tester ?</h2>
+                    </div>
+                    <div class="faq-plus-circle">
+                        <svg viewBox="0 0 24 24" class="faq-plus-icon">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                </summary>
+                <div class="faq-content-wrapper">
+                    <p class="faq-answer">
+                        Nous intervenons sur une grande variété de plateformes : sites web vitrines ou e-commerce, applications mobiles natives (iOS et Android), solutions d'entreprise personnalisées (ERP, CRM), et outils métiers cloud (SaaS).
+                    </p>
+                </div>
+            </details>
+
+            <!-- Item 3 -->
+            <details class="faq-item" name="score-faq">
+                <summary>
+                    <div class="faq-question-left-wrap">
+                        <svg viewBox="0 0 24 24" class="faq-star-icon">
+                            <path d="M12 0 C12 8, 16 12, 24 12 C16 12, 12 16, 12 24 C12 16, 8 12, 0 12 C8 12, 12 8, 12 0 Z"/>
+                        </svg>
+                        <h2 class="faq-question">Qu'inclut l'offre Standard à 49 000 FCFA par rapport à l'offre Découverte ?</h2>
+                    </div>
+                    <div class="faq-plus-circle">
+                        <svg viewBox="0 0 24 24" class="faq-plus-icon">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                </summary>
+                <div class="faq-content-wrapper">
+                    <p class="faq-answer">
+                        Alors que l'offre Découverte se concentre sur les bugs visuels évidents, l'offre Standard (49 000 FCFA) comprend une analyse fonctionnelle exhaustive, la création de scénarios et cas de tests, un rapport d'évaluation complet avec captures d'écran, des conseils de correction précis, ainsi qu'un support après restitution.
+                    </p>
+                </div>
+            </details>
+
+            <!-- Item 4 -->
+            <details class="faq-item" name="score-faq">
+                <summary>
+                    <div class="faq-question-left-wrap">
+                        <svg viewBox="0 0 24 24" class="faq-star-icon">
+                            <path d="M12 0 C12 8, 16 12, 24 12 C16 12, 12 16, 12 24 C12 16, 8 12, 0 12 C8 12, 12 8, 12 0 Z"/>
+                        </svg>
+                        <h2 class="faq-question">Comment assurez-vous la confidentialité de nos données de test ?</h2>
+                    </div>
+                    <div class="faq-plus-circle">
+                        <svg viewBox="0 0 24 24" class="faq-plus-icon">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                </summary>
+                <div class="faq-content-wrapper">
+                    <p class="faq-answer">
+                        La sécurité de vos données est absolue. Avant d'accéder à votre application ou à vos identifiants, nous signons un accord de confidentialité (NDA). Vos accès sont chiffrés et uniquement partagés avec les testeurs QA assignés à votre évaluation.
+                    </p>
+                </div>
+            </details>
+
+            <!-- Item 5 -->
+            <details class="faq-item" name="score-faq">
+                <summary>
+                    <div class="faq-question-left-wrap">
+                        <svg viewBox="0 0 24 24" class="faq-star-icon">
+                            <path d="M12 0 C12 8, 16 12, 24 12 C16 12, 12 16, 12 24 C12 16, 8 12, 0 12 C8 12, 12 8, 12 0 Z"/>
+                        </svg>
+                        <h2 class="faq-question">Proposez-vous également des services de développement et de digitalisation ?</h2>
+                    </div>
+                    <div class="faq-plus-circle">
+                        <svg viewBox="0 0 24 24" class="faq-plus-icon">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                </summary>
+                <div class="faq-content-wrapper">
+                    <p class="faq-answer">
+                        Oui ! SCORE est une ESN complète. Au-delà de l'assurance qualité (QA), notre équipe développe des sites internet, conçoit des outils métiers sur mesure, automatise vos flux de travail et propose une assistance technique continue.
+                    </p>
+                </div>
+            </details>
+
+        </div>
+        </div>
+    </main>
+
+    <!-- Licensing Banner Section -->
+    <section class="licensing-banner">
+        <div class="licensing-tag">
+            <span class="licensing-dot"></span>CONTACT & AUDIT
+        </div>
+        <h2 class="licensing-heading">
+            Des questions sur <span class="licensing-bold">nos rapports d'audit</span> ou d'évaluation ?
+        </h2>
+        <a href="contact.html" style="text-decoration: none;">
+            <button class="licensing-btn">
+                NOUS CONTACTER
+                <svg class="licensing-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            </button>
+        </a>
+    </section>
+
+    <!-- Footer section (La carte blanche intacte par défaut de la page d'accueil) -->
+    <footer class="main-card">
+
+        <div class="footer-hero-section">
+            <p class="hero-subtitle">
+                SOUMETTEZ VOTRE APPLICATION WEB OU MOBILE.<br>
+                PREMIER RETOUR SOUS 72 HEURES OUVRÉES.
+            </p>
+            
+            <h1 class="footer-hero-title">
+                Obtenez un<br>
+                audit gratuit
+            </h1>
+            
+            <div class="hero-actions">
+                <a href="index.html#score-motion" class="btn-primary-footer" style="text-decoration: none;">
+                    SOUMETTRE UNE APP
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </a>
+                <a href="index.html#offer-intro-title" class="btn-secondary-footer" style="text-decoration: none;">
+                    VOIR LES OFFRES
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="newsletter-section">
+                <h2 class="newsletter-title">Parlez-nous de votre application</h2>
+                <form class="subscribe-form" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="VOTRE EMAIL" required>
+                    <button type="submit">
+                        ENVOYER
+                        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            
+            <div class="links-section">
+                <div class="link-col">
+                    <h3>Social</h3>
+                    <a href="#">LINKEDIN</a>
+                </div>
+                
+                <div class="link-col">
+                    <h3>Pages</h3>
+                    <a href="index.html">ACCUEIL</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="index.html#offer-intro-title">OFFRES</a>
+                    <a href="index.html#smart-features-title">SERVICES</a>
+                </div>
+                
+                <div class="link-col">
+                    <h3>Contact</h3>
+                    <a href="mailto:obtenezinfoscore@gmail.com">EMAIL</a>
+                    <a href="tel:0153755050">01 53 75 50 50</a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menu-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <div class="menu-backdrop"></div>
+      <div class="menu-panel">
+        <nav>
+          <a class="menu-link" href="index.html" tabindex="-1"><span>Accueil</span><span class="link-num">01</span></a>
+          <a class="menu-link" href="index.html#smart-features-title" tabindex="-1"><span>Services</span><span class="link-num">02</span></a>
+          <a class="menu-link" href="index.html#offer-intro-title" tabindex="-1"><span>Offres</span><span class="link-num">03</span></a>
+          <a class="menu-link" href="faq.html" tabindex="-1"><span>FAQ</span><span class="link-num">04</span></a>
+          <a class="menu-link" href="contact.html" tabindex="-1"><span>Contact</span><span class="link-num">05</span></a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- GSAP for smooth interactive accordion transitions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach((item) => {
+                const summary = item.querySelector('summary');
+                const content = item.querySelector('.faq-content-wrapper');
+                const plusIcon = item.querySelector('.faq-plus-icon');
+                
+                // Intercept summary click to animate height smoothly
+                summary.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const isOpen = item.hasAttribute('open');
+                    
+                    if (isOpen) {
+                        // Smoothly collapse content
+                        gsap.to(content, {
+                            height: 0,
+                            opacity: 0,
+                            duration: 0.35,
+                            ease: 'power2.out',
+                            onComplete: () => {
+                                item.removeAttribute('open');
+                            }
+                        });
+                        
+                        // Rotate plus icon back (reverts from cross back to plus)
+                        gsap.to(plusIcon, {
+                            rotation: 0,
+                            duration: 0.35,
+                            ease: 'power2.out'
+                        });
+                    } else {
+                        // Open details node
+                        item.setAttribute('open', '');
+                        
+                        // Measure content auto height
+                        gsap.set(content, { height: 'auto', opacity: 0 });
+                        const targetHeight = content.clientHeight;
+                        gsap.set(content, { height: 0 });
+                        
+                        // Smoothly expand content
+                        gsap.to(content, {
+                            height: targetHeight,
+                            opacity: 1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                        
+                        // Rotate plus icon by 45 degrees to represent a close action (cross)
+                        gsap.to(plusIcon, {
+                            rotation: 45,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                        
+                        // Mutually exclusive: Close any other open details
+                        faqItems.forEach((sibling) => {
+                            if (sibling !== item && sibling.hasAttribute('open')) {
+                                const sibContent = sibling.querySelector('.faq-content-wrapper');
+                                const sibPlusIcon = sibling.querySelector('.faq-plus-icon');
+                                
+                                gsap.to(sibContent, {
+                                    height: 0,
+                                    opacity: 0,
+                                    duration: 0.35,
+                                    ease: 'power2.out',
+                                    onComplete: () => {
+                                        sibling.removeAttribute('open');
+                                    }
+                                });
+                                
+                                gsap.to(sibPlusIcon, {
+                                    rotation: 0,
+                                    duration: 0.35,
+                                    ease: 'power2.out'
+                                });
+                            }
+                        });
+                    }
+                });
+            });
+
+            // ─── Island Menu JS Implementation ───
+            (function() {
+                let isOpen = false;
+                let tl;
+
+                function initMenu() {
+                    if (tl) tl.revert();
+                    
+                    const expandedWidth = Math.min(window.innerWidth * 0.9, 400);
+
+                    tl = gsap.timeline({ paused: true })
+                        .set('.menu-overlay', { pointerEvents: 'auto' })
+                        .to('.island', { width: expandedWidth, duration: 0.8, ease: 'back.out(2)', easeReverse: 'power2.out' }, 0)
+                        .to('.island-logo', { opacity: 1, rotation: 180, duration: 0.5, ease: 'back.out', easeReverse: 'power4.out' }, 0.12)
+                        .to('.bar-mid', { opacity: 0, duration: 0.15, ease: 'power2.in', easeReverse: 'power2.out' }, 0)
+                        .to('.bar-top', { attr: { x1: 3, y1: 3, x2: 13, y2: 13 }, duration: 0.28, ease: 'power3.inOut' }, 0)
+                        .to('.bar-bot', { attr: { x1: 13, y1: 3, x2: 3, y2: 13 }, duration: 0.28, ease: 'power3.inOut' }, 0)
+                        .to('.menu-backdrop', { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0)
+                        .from('.menu-panel', { autoAlpha: 0, yPercent: -10, scale: 0.6, duration: 0.8, transformOrigin: 'top center', ease: 'back.out(2)', easeReverse: 'power3.out' }, 0.1)
+                        .from('.menu-link', { opacity: 0, y: 6, duration: 0.32, ease: 'power2.out', easeReverse: 'power2.out', stagger: 0.05 }, 0.22);
+                }
+
+                initMenu();
+                window.addEventListener('resize', initMenu);
+
+                function toggleMenu() {
+                    isOpen = !isOpen;
+                    const btn = document.getElementById('menuToggle');
+                    if (btn) {
+                        btn.setAttribute('aria-expanded', isOpen);
+                        btn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+                    }
+                    document.querySelectorAll('.menu-link').forEach(l => l.setAttribute('tabindex', isOpen ? '0' : '-1'));
+                    if (isOpen) {
+                        tl.timeScale(1).play();
+                    } else {
+                        tl.eventCallback('onReverseComplete', () => gsap.set('.menu-overlay', { pointerEvents: 'none' }));
+                        tl.timeScale(1).reverse();
+                    }
+                }
+
+                const menuToggleBtn = document.getElementById('menuToggle');
+                if (menuToggleBtn) {
+                    menuToggleBtn.addEventListener('click', toggleMenu);
+                }
+                
+                const backdrop = document.querySelector('.menu-backdrop');
+                if (backdrop) {
+                    backdrop.addEventListener('click', () => { if (isOpen) toggleMenu(); });
+                }
+
+                document.addEventListener('keydown', e => {
+                    if (e.key === 'Escape' && isOpen) { 
+                        toggleMenu(); 
+                        if (menuToggleBtn) menuToggleBtn.focus(); 
+                    }
+                });
+
+                const overlay = document.querySelector('.menu-overlay');
+                if (overlay) {
+                    overlay.addEventListener('keydown', e => {
+                        if (!isOpen || e.key !== 'Tab') return;
+                        const focusable = [...document.querySelectorAll('.menu-link[tabindex="0"]')];
+                        if (!focusable.length) return;
+                        const [first, last] = [focusable[0], focusable[focusable.length - 1]];
+                        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+                    });
+                }
+            })();
+
+            // --- Footer Entry Animation ---
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+                const footerTimeline = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '.main-card',
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    }
+                });
+
+                footerTimeline.from('.main-card', {
+                    y: 60,
+                    opacity: 0,
+                    duration: 1.0,
+                    ease: 'power3.out'
+                })
+                .from('.main-card .footer-hero-section .hero-subtitle', {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.6,
+                    ease: 'power3.out'
+                }, '-=0.6')
+                .from('.main-card .footer-hero-section .footer-hero-title', {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                }, '-=0.4')
+                .from('.main-card .footer-hero-section .hero-actions', {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.6,
+                    ease: 'power3.out'
+                }, '-=0.4')
+                .from('.main-card .footer-bottom .newsletter-section', {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                }, '-=0.4')
+                .from('.main-card .footer-bottom .link-col', {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    stagger: 0.1
+                }, '-=0.6');
+            }
+        });
+    </script>
+</body>
+</html>
