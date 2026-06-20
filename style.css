@@ -15,7 +15,7 @@
             padding: 0;
             background-color: var(--bg-dark); /* Le fond noir derrière la carte footer */
             font-family: var(--font-sans);
-            overflow-x: clip;
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             scrollbar-width: none;
         }
@@ -1040,14 +1040,14 @@
             margin: 0 10px;
             padding: 0;
             border-radius: 40px;
-            overflow: clip;
+            overflow: hidden;
         }
 
         .why-test-top {
             position: relative;
             padding: clamp(72px, 7vw, 118px) 0 0;
             background: #ffffff;
-            overflow: clip;
+            overflow: hidden;
         }
 
         .why-test-top::before {
@@ -2736,26 +2736,17 @@
 
         .why-card-wrapper {
             width: 100%;
-            height: 180px; /* Same as card height on desktop */
-            margin-bottom: 50vh; /* Scroll spacing */
-            position: -webkit-sticky;
-            position: sticky;
+            height: 70vh;
+            position: relative;
         }
 
-        .why-card-wrapper:nth-child(1) { top: 10px; z-index: 1; }
-        .why-card-wrapper:nth-child(2) { top: 90px; z-index: 2; }
-        .why-card-wrapper:nth-child(3) { top: 170px; z-index: 3; }
-        .why-card-wrapper:nth-child(4) { top: 250px; z-index: 4; }
-        .why-card-wrapper:nth-child(5) { top: 330px; z-index: 5; }
-
         .why-card-wrapper:last-child {
-            height: 180px;
-            margin-bottom: 0;
+            height: 350px; /* Reduced to bring the next section closer */
         }
 
         .why-right-element {
             width: 100%;
-            height: 100%;
+            height: 180px;
             box-sizing: border-box;
             display: grid;
             grid-template-columns: 1.2fr 1fr;
@@ -2872,26 +2863,16 @@
             }
 
             .why-card-wrapper {
-                position: -webkit-sticky;
-                position: sticky;
-                height: 260px; /* Same as card height on mobile */
-                margin-bottom: 40vh; /* Scroll spacing */
+                height: 60vh;
             }
 
-            .why-card-wrapper:nth-child(1) { top: 10px; z-index: 1; }
-            .why-card-wrapper:nth-child(2) { top: 70px; z-index: 2; }
-            .why-card-wrapper:nth-child(3) { top: 130px; z-index: 3; }
-            .why-card-wrapper:nth-child(4) { top: 190px; z-index: 4; }
-            .why-card-wrapper:nth-child(5) { top: 250px; z-index: 5; }
-
             .why-card-wrapper:last-child {
-                height: 260px;
-                margin-bottom: 0;
+                height: 350px;
             }
 
             .why-right-element {
                 width: 100%;
-                height: 100%;
+                height: 260px;
                 min-height: auto;
                 grid-template-columns: 1fr;
                 gap: 16px;
