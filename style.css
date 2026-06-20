@@ -3374,7 +3374,7 @@
             background-color: #000000; /* Deep black */
             color: var(--white);
             margin: 40px 10px 0 10px; /* Aligns with why-test-section and main-card */
-            border-radius: 40px;
+            border-radius: 0;
             padding: clamp(60px, 8vw, 100px) clamp(24px, 5vw, 70px);
             width: calc(100% - 20px);
             box-sizing: border-box;
@@ -3476,7 +3476,7 @@
 
         @media (max-width: 900px) {
             .home-custom-black-section {
-                border-radius: 20px;
+                border-radius: 0;
                 margin: 20px 0 0 0;
                 width: 100%;
                 padding: 40px 20px;
