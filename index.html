@@ -3,32 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Skip preloader if already seen in this session
+        if (sessionStorage.getItem('preloader-shown') === 'true') {
+            document.documentElement.classList.add('preloader-hidden');
+        }
+    </script>
     <title>SCORE - Assurance Qualité</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=1.0.4">
+    <!-- Load GSAP early for preloader exit animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <style>
-        /* Modern Minimalist Preloader Styles */
-        #preloader {
+        /* Modern Minimalist Preloader Styles with Liquid Curtain */
+        .preloader-hidden .loader-wrap {
+            display: none !important;
+        }
+
+        .loader-wrap {
+            width: 100%;
+            height: 100vh;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000000; /* Pure black background */
             z-index: 99999;
+            background-color: #000000; /* Solid black base */
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .loader-wrap svg {
+            position: absolute;
+            top: 0;
+            width: 100vw;
+            height: 110vh;
+            overflow: hidden;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            fill: #000000; /* Pure black curtain to match page background request */
+        }
+
+        #preloader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            z-index: 100000;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 1;
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
-            pointer-events: all;
-        }
-
-        #preloader.fade-out {
-            opacity: 0;
-            visibility: hidden;
             pointer-events: none;
         }
 
@@ -56,15 +84,15 @@
 
         .brand-letter {
             opacity: 0;
-            transform: translateY(24px);
-            animation: letter-entrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transform: translateY(16px);
+            animation: letter-entrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .brand-letter:nth-child(1) { animation-delay: 0.1s; }
-        .brand-letter:nth-child(2) { animation-delay: 0.18s; }
-        .brand-letter:nth-child(3) { animation-delay: 0.26s; }
-        .brand-letter:nth-child(4) { animation-delay: 0.34s; }
-        .brand-letter:nth-child(5) { animation-delay: 0.42s; }
+        .brand-letter:nth-child(1) { animation-delay: 0.05s; }
+        .brand-letter:nth-child(2) { animation-delay: 0.1s; }
+        .brand-letter:nth-child(3) { animation-delay: 0.15s; }
+        .brand-letter:nth-child(4) { animation-delay: 0.2s; }
+        .brand-letter:nth-child(5) { animation-delay: 0.25s; }
 
         @keyframes letter-entrance {
             to {
@@ -103,7 +131,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: rgba(255, 255, 255, 0.85); /* Enhanced readability on pure black */
+            color: rgba(255, 255, 255, 0.4);
             opacity: 0;
             animation: text-fade-in 1s ease 1s forwards;
             white-space: nowrap;
@@ -118,37 +146,120 @@
     <script>
         // Direct preloader control logic
         window.addEventListener('DOMContentLoaded', () => {
+            // Check if preloader was already dismissed
+            if (sessionStorage.getItem('preloader-shown') === 'true') {
+                const wrap = document.querySelector('.loader-wrap');
+                if (wrap) wrap.style.display = 'none';
+                return;
+            }
+
+            const startTime = Date.now();
+            const minDuration = 1800; // Enforce minimum duration of 1.8s to show brand clearly
+
             const dismissPreloader = () => {
-                const preloader = document.getElementById('preloader');
-                if (preloader && !preloader.classList.contains('fade-out')) {
-                    preloader.classList.add('fade-out');
+                const elapsed = Date.now() - startTime;
+                const remaining = Math.max(0, minDuration - elapsed);
+                
+                setTimeout(() => {
+                    playExitAnimation();
+                }, remaining);
+            };
+
+            const playExitAnimation = () => {
+                if (window.preloaderDismissed) return;
+                window.preloaderDismissed = true;
+
+                // Ensure GSAP is loaded before animating
+                if (typeof gsap !== 'undefined') {
+                    const tl = gsap.timeline({
+                        onComplete: () => {
+                            sessionStorage.setItem('preloader-shown', 'true');
+                            gsap.set('.loader-wrap', { display: 'none', zIndex: -1 });
+                        }
+                    });
+
+                    const curve = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
+                    const flat = "M0 2S175 1 500 1s500 1 500 1V0H0Z";
+
+                    // Animate background color transition of loader wrap
+                    tl.set('.loader-wrap', { backgroundColor: 'transparent' });
+
+                    // Fade out brand text/progress
+                    tl.to('#preloader', {
+                        opacity: 0,
+                        y: -50,
+                        duration: 0.4,
+                        ease: 'power2.in'
+                    }, 0);
+
+                    // Morph curtain path
+                    tl.to('#curtain-svg', {
+                        attr: { d: curve },
+                        duration: 0.5,
+                        ease: 'power4.in'
+                    }, 0.1);
+
+                    tl.to('#curtain-svg', {
+                        attr: { d: flat },
+                        duration: 0.5,
+                        ease: 'power4.out'
+                    }, 0.6);
+
+                    // Slide entire wrap up
+                    tl.to('.loader-wrap', {
+                        y: -1500,
+                        duration: 0.7,
+                        ease: 'power3.inOut'
+                    }, 0.4);
+                } else {
+                    // Fallback if GSAP fails to load
+                    const wrap = document.querySelector('.loader-wrap');
+                    if (wrap) {
+                        wrap.style.transition = 'opacity 0.8s ease';
+                        wrap.style.opacity = '0';
+                        setTimeout(() => {
+                            wrap.style.display = 'none';
+                            sessionStorage.setItem('preloader-shown', 'true');
+                        }, 800);
+                    }
                 }
             };
             
-            // Dismiss when page has loaded completely
-            window.addEventListener('load', dismissPreloader);
+            // Dismiss when page has loaded completely, respecting minDuration
+            if (document.readyState === 'complete') {
+                dismissPreloader();
+            } else {
+                window.addEventListener('load', dismissPreloader);
+            }
             
-            // Fallback safety timeout (3s)
-            setTimeout(dismissPreloader, 3000);
+            // Fallback safety timeout (3.5s)
+            setTimeout(() => {
+                playExitAnimation();
+            }, 3500);
         });
     </script>
 </head>
 <body>
 
     <!-- Preloader Overlay Screen -->
-    <div id="preloader">
-        <div class="preloader-content">
-            <div class="preloader-brand">
-                <span class="brand-letter">S</span>
-                <span class="brand-letter">C</span>
-                <span class="brand-letter">O</span>
-                <span class="brand-letter">R</span>
-                <span class="brand-letter">E</span>
+    <div class="loader-wrap">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+            <path id="curtain-svg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+        </svg>
+        <div id="preloader">
+            <div class="preloader-content">
+                <div class="preloader-brand">
+                    <span class="brand-letter">S</span>
+                    <span class="brand-letter">C</span>
+                    <span class="brand-letter">O</span>
+                    <span class="brand-letter">R</span>
+                    <span class="brand-letter">E</span>
+                </div>
+                <div class="preloader-progress">
+                    <div class="preloader-bar"></div>
+                </div>
+                <div class="preloader-text">Software Quality Assurance</div>
             </div>
-            <div class="preloader-progress">
-                <div class="preloader-bar"></div>
-            </div>
-            <div class="preloader-text">Software Quality Assurance</div>
         </div>
     </div>
 
@@ -1564,13 +1675,13 @@
                 const expandedWidth = Math.min(window.innerWidth * 0.9, 400);
 
                 tl = gsap.timeline({ paused: true })
-                    .set('.menu-overlay', { pointerEvents: 'auto' })
+                    .set('.menu-overlay', { pointerEvents: 'auto', visibility: 'visible' })
                     .to('.island', { width: expandedWidth, duration: 0.8, ease: 'back.out(2)', easeReverse: 'power2.out' }, 0)
                     .to('.island-logo', { opacity: 1, rotation: 180, duration: 0.5, ease: 'back.out', easeReverse: 'power4.out' }, 0.12)
                     .to('.bar-mid', { opacity: 0, duration: 0.15, ease: 'power2.in', easeReverse: 'power2.out' }, 0)
                     .to('.bar-top', { attr: { x1: 3, y1: 3, x2: 13, y2: 13 }, duration: 0.28, ease: 'power3.inOut' }, 0)
                     .to('.bar-bot', { attr: { x1: 13, y1: 3, x2: 3, y2: 13 }, duration: 0.28, ease: 'power3.inOut' }, 0)
-                    .to('.menu-backdrop', { autoAlpha: 1, duration: 0.3, ease: 'power2.out' }, 0)
+                    .to('.menu-backdrop', { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0)
                     .from('.menu-panel', { autoAlpha: 0, yPercent: -10, scale: 0.6, duration: 0.8, transformOrigin: 'top center', ease: 'back.out(2)', easeReverse: 'power3.out' }, 0.1)
                     .from('.menu-link', { opacity: 0, y: 6, duration: 0.32, ease: 'power2.out', easeReverse: 'power2.out', stagger: 0.05 }, 0.22);
             }
@@ -1589,7 +1700,7 @@
                 if (isOpen) {
                     tl.timeScale(1).play();
                 } else {
-                    tl.eventCallback('onReverseComplete', () => gsap.set('.menu-overlay', { pointerEvents: 'none' }));
+                    tl.eventCallback('onReverseComplete', () => gsap.set('.menu-overlay', { pointerEvents: 'none', visibility: 'hidden' }));
                     tl.timeScale(1).reverse();
                 }
             }

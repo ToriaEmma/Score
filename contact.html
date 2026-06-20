@@ -834,13 +834,13 @@
                 const expandedWidth = Math.min(window.innerWidth * 0.9, 400);
 
                 tl = gsap.timeline({ paused: true })
-                    .set('.menu-overlay', { pointerEvents: 'auto' })
+                    .set('.menu-overlay', { pointerEvents: 'auto', visibility: 'visible' })
                     .to('.island', { width: expandedWidth, duration: 0.8, ease: 'back.out(2)', easeReverse: 'power2.out' }, 0)
                     .to('.island-logo', { opacity: 1, rotation: 180, duration: 0.5, ease: 'back.out', easeReverse: 'power4.out' }, 0.12)
                     .to('.bar-mid', { opacity: 0, duration: 0.15, ease: 'power2.in', easeReverse: 'power2.out' }, 0)
                     .to('.bar-top', { attr: { x1: 3, y1: 3, x2: 13, y2: 13 }, duration: 0.28, ease: 'power3.inOut' }, 0)
                     .to('.bar-bot', { attr: { x1: 13, y1: 3, x2: 3, y2: 13 }, duration: 0.28, ease: 'power3.inOut' }, 0)
-                    .to('.menu-backdrop', { autoAlpha: 1, duration: 0.3, ease: 'power2.out' }, 0)
+                    .to('.menu-backdrop', { opacity: 1, duration: 0.3, ease: 'power2.out' }, 0)
                     .from('.menu-panel', { autoAlpha: 0, yPercent: -10, scale: 0.6, duration: 0.8, transformOrigin: 'top center', ease: 'back.out(2)', easeReverse: 'power3.out' }, 0.1)
                     .from('.menu-link', { opacity: 0, y: 6, duration: 0.32, ease: 'power2.out', easeReverse: 'power2.out', stagger: 0.05 }, 0.22);
             }
@@ -859,7 +859,7 @@
                 if (isOpen) {
                     tl.timeScale(1).play();
                 } else {
-                    tl.eventCallback('onReverseComplete', () => gsap.set('.menu-overlay', { pointerEvents: 'none' }));
+                    tl.eventCallback('onReverseComplete', () => gsap.set('.menu-overlay', { pointerEvents: 'none', visibility: 'hidden' }));
                     tl.timeScale(1).reverse();
                 }
             }
