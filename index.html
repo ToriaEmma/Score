@@ -1061,29 +1061,6 @@
                     });
                 });
             });
-
-            // Mobile/Tablet
-            mm.add("(max-width: 900px)", () => {
-                const cards = gsap.utils.toArray(".why-right-element");
-
-                // Cumulative offset of stacked deck bottom (60px * 4 + 260px card height = 500px)
-                const cardHeight = 260;
-                const endOffset = 60 * (cards.length - 1) + cardHeight;
-
-                // Pin each card at cumulative 60px offsets
-                cards.forEach((card, i) => {
-                    const wrapper = card.closest('.why-card-wrapper');
-                    ScrollTrigger.create({
-                        trigger: wrapper,
-                        start: "top top+=" + (60 * i),
-                        end: "top top+=" + endOffset,
-                        endTrigger: ".offer-intro-section",
-                        pin: card,
-                        pinSpacing: false,
-                        id: "why-card-pin-mob-" + (i + 1)
-                    });
-                });
-            });
         }
 
         if (offerShowcase) {
