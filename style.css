@@ -3373,12 +3373,16 @@
             z-index: 2;
             background-color: #000000; /* Deep black */
             color: var(--white);
-            margin: 40px 10px 0 10px; /* Aligns with why-test-section and main-card */
+            margin: 0; /* Aligns flush with kinetic-section and main-card */
             border-radius: 0;
             padding: clamp(60px, 8vw, 100px) clamp(24px, 5vw, 70px);
-            width: calc(100% - 20px);
+            width: 100%;
             box-sizing: border-box;
             overflow: hidden;
+        }
+
+        .home-custom-black-section + .main-card {
+            margin-top: 0 !important;
         }
 
         .custom-black-inner {
@@ -3477,7 +3481,7 @@
         @media (max-width: 900px) {
             .home-custom-black-section {
                 border-radius: 0;
-                margin: 20px 0 0 0;
+                margin: 0;
                 width: 100%;
                 padding: 40px 20px;
             }
