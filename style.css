@@ -1838,7 +1838,8 @@
         }
 
         .subscribe-form button {
-            background-color: var(--white);
+            background-color: var(--lime);
+            color: #000000;
             border: none;
             border-radius: 50px;
             padding: 0 24px;
@@ -1852,11 +1853,12 @@
             cursor: pointer;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         .subscribe-form button:hover {
-            background-color: #e5e7eb;
+            background-color: #59b856;
+            transform: scale(1.02);
         }
 
         .links-section {
