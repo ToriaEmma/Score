@@ -1042,22 +1042,39 @@
             // Desktop
             mm.add("(min-width: 901px)", () => {
                 const cards = gsap.utils.toArray(".why-right-element");
-
-                // Cumulative offset of stacked deck bottom (80px * 4 + 180px card height = 500px)
                 const cardHeight = 180;
-                const endOffset = 80 * (cards.length - 1) + cardHeight;
 
-                // Pin each card at cumulative 80px offsets
+                // Pin each card at cumulative 80px offsets using container-relative end trigger
                 cards.forEach((card, i) => {
                     const wrapper = card.closest('.why-card-wrapper');
                     ScrollTrigger.create({
                         trigger: wrapper,
                         start: "top top+=" + (80 * i),
-                        end: "top top+=" + endOffset,
-                        endTrigger: ".offer-intro-section",
+                        endTrigger: ".why-right-content",
+                        end: "bottom top+=" + (80 * i + cardHeight),
                         pin: card,
                         pinSpacing: false,
                         id: "why-card-pin-" + (i + 1)
+                    });
+                });
+            });
+
+            // Mobile/Tablet
+            mm.add("(max-width: 900px)", () => {
+                const cards = gsap.utils.toArray(".why-right-element");
+                const cardHeight = 260;
+
+                // Pin each card at cumulative 60px offsets using container-relative end trigger
+                cards.forEach((card, i) => {
+                    const wrapper = card.closest('.why-card-wrapper');
+                    ScrollTrigger.create({
+                        trigger: wrapper,
+                        start: "top top+=" + (60 * i),
+                        endTrigger: ".why-right-content",
+                        end: "bottom top+=" + (60 * i + cardHeight),
+                        pin: card,
+                        pinSpacing: false,
+                        id: "why-card-pin-mob-" + (i + 1)
                     });
                 });
             });
