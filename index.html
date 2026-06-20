@@ -1030,55 +1030,7 @@
             });
         }
 
-        // --- Animation des Cartes Pourquoi Tester ---
-        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
-            
-            // Ignore mobile height resizes (address bar hide/show) to prevent pinned elements getting stuck
-            ScrollTrigger.config({ ignoreMobileResize: true });
 
-            const mm = gsap.matchMedia();
-
-            // Desktop
-            mm.add("(min-width: 901px)", () => {
-                const cards = gsap.utils.toArray(".why-right-element");
-                const cardHeight = 180;
-
-                // Pin each card at cumulative 80px offsets using container-relative end trigger
-                cards.forEach((card, i) => {
-                    const wrapper = card.closest('.why-card-wrapper');
-                    ScrollTrigger.create({
-                        trigger: wrapper,
-                        start: "top top+=" + (80 * i),
-                        endTrigger: ".why-right-content",
-                        end: "bottom top+=" + (80 * i + cardHeight),
-                        pin: card,
-                        pinSpacing: false,
-                        id: "why-card-pin-" + (i + 1)
-                    });
-                });
-            });
-
-            // Mobile/Tablet
-            mm.add("(max-width: 900px)", () => {
-                const cards = gsap.utils.toArray(".why-right-element");
-                const cardHeight = 260;
-
-                // Pin each card at cumulative 60px offsets using container-relative end trigger
-                cards.forEach((card, i) => {
-                    const wrapper = card.closest('.why-card-wrapper');
-                    ScrollTrigger.create({
-                        trigger: wrapper,
-                        start: "top top+=" + (60 * i),
-                        endTrigger: ".why-right-content",
-                        end: "bottom top+=" + (60 * i + cardHeight),
-                        pin: card,
-                        pinSpacing: false,
-                        id: "why-card-pin-mob-" + (i + 1)
-                    });
-                });
-            });
-        }
 
         if (offerShowcase) {
             const offerToggle = offerShowcase.querySelector('[data-offer-toggle]');
