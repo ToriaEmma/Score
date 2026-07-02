@@ -715,6 +715,34 @@
             color: rgba(0, 0, 0, 0.82);
         }
 
+        @media (min-width: 901px) {
+            .score-reveal-card {
+                cursor: pointer;
+                pointer-events: auto;
+            }
+
+            .score-reveal-card p {
+                opacity: 1;
+                transform: translateY(0);
+                transition:
+                    opacity 0.28s ease,
+                    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+
+            .score-reveal-card:hover,
+            .score-reveal-card:focus-visible,
+            .score-reveal-card.is-active {
+                z-index: 20;
+            }
+
+            .score-reveal-card:hover p,
+            .score-reveal-card:focus-visible p,
+            .score-reveal-card.is-active p {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* --- Smart Features Section --- */
         .smart-features-section {
             position: relative;
@@ -3439,6 +3467,15 @@
             letter-spacing: -0.03em;
         }
 
+        .qa-commitment-intro .custom-black-title {
+            overflow: hidden;
+        }
+
+        .qa-commitment-intro .qa-word {
+            display: inline-block;
+            will-change: transform, opacity;
+        }
+
         .custom-black-btn {
             background-color: var(--white);
             color: #000000;
@@ -3490,5 +3527,53 @@
             }
         }
 
+        @media (min-width: 901px) {
+            .score-reveal-card {
+                transition:
+                    opacity 0.18s ease,
+                    transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                    box-shadow 0.28s ease,
+                    filter 0.28s ease,
+                    outline-color 0.2s ease;
+            }
 
+            .score-reveal-card:hover,
+            .score-reveal-card:focus-visible,
+            .score-reveal-card.is-active {
+                z-index: 100 !important;
+                box-shadow: 0 52px 135px rgba(0, 0, 0, 0.58) !important;
+                outline: 4px solid rgba(255, 255, 255, 0.82);
+                outline-offset: 8px;
+                filter: saturate(1.08) brightness(1.04);
+            }
 
+            .kinetic-section.card-five-stage .score-reveal-card:not(.card-two):not(.card-three):not(.card-four):not(.card-five):hover,
+            .kinetic-section.card-five-stage .score-reveal-card:not(.card-two):not(.card-three):not(.card-four):not(.card-five):focus-visible,
+            .kinetic-section.card-five-stage .score-reveal-card:not(.card-two):not(.card-three):not(.card-four):not(.card-five).is-active {
+                transform: translate(calc(-50% - 520px), calc(-50% + 20px)) rotate(-7deg) scale(0.88) !important;
+            }
+
+            .kinetic-section.card-five-stage .score-reveal-card.card-two:hover,
+            .kinetic-section.card-five-stage .score-reveal-card.card-two:focus-visible,
+            .kinetic-section.card-five-stage .score-reveal-card.card-two.is-active {
+                transform: translate(calc(-50% - 270px), calc(-50% - 16px)) rotate(-2deg) scale(0.92) !important;
+            }
+
+            .kinetic-section.card-five-stage .score-reveal-card.card-three:hover,
+            .kinetic-section.card-five-stage .score-reveal-card.card-three:focus-visible,
+            .kinetic-section.card-five-stage .score-reveal-card.card-three.is-active {
+                transform: translate(calc(-50% - 20px), calc(-50% - 40px)) rotate(0deg) scale(0.96) !important;
+            }
+
+            .kinetic-section.card-five-stage .score-reveal-card.card-four:hover,
+            .kinetic-section.card-five-stage .score-reveal-card.card-four:focus-visible,
+            .kinetic-section.card-five-stage .score-reveal-card.card-four.is-active {
+                transform: translate(calc(-50% + 230px), calc(-50% - 14px)) rotate(2deg) scale(0.92) !important;
+            }
+
+            .kinetic-section.card-five-stage .score-reveal-card.card-five:hover,
+            .kinetic-section.card-five-stage .score-reveal-card.card-five:focus-visible,
+            .kinetic-section.card-five-stage .score-reveal-card.card-five.is-active {
+                transform: translate(calc(-50% + 480px), calc(-50% + 16px)) rotate(7deg) scale(0.88) !important;
+            }
+        }
