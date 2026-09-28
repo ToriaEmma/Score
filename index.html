@@ -1760,7 +1760,14 @@
             let tl;
 
             function initMenu() {
-                if (tl) tl.revert();
+                // revert() rend la main a la feuille de style, mais GSAP laisse
+                // des styles inline residuels sur les cibles d'un .from() : apres
+                // une rotation, les liens repartaient a opacity 0 et le menu
+                // s'ouvrait vide. On les efface avant de rebatir la timeline.
+                if (tl) {
+                    tl.revert();
+                    gsap.set('.menu-link, .menu-panel', { clearProps: 'all' });
+                }
                 
                 const expandedWidth = Math.min(window.innerWidth * 0.9, 400);
 
@@ -1777,7 +1784,20 @@
             }
 
             initMenu();
-            window.addEventListener('resize', initMenu);
+            // La timeline ne se reconstruit QUE menu ferme, et seulement si la
+            // largeur a change. initMenu() fait tl.revert(), ce qui replace
+            // panneau et liens a leur etat de depart -- opacity 0. Rappele
+            // pendant que le menu est ouvert, il le laissait donc ouvert mais
+            // totalement invisible. Sur iOS c'etait systematique : retracter
+            // la barre d'adresse en defilant emet un resize, alors que seule
+            // la HAUTEUR change et que la timeline n'en depend pas.
+            let lastWidth = window.innerWidth;
+            window.addEventListener('resize', () => {
+                if (window.innerWidth === lastWidth) return;
+                lastWidth = window.innerWidth;
+                if (isOpen) return;
+                initMenu();
+            });
 
             function toggleMenu() {
                 isOpen = !isOpen;
