@@ -3393,6 +3393,24 @@
               overflow: hidden;
               box-shadow: none;
             }
+
+            /* Le bouton paraissait vide : .island-logo--cont est a width 0 et
+               son logo a opacity 0 (etat desktop), si bien que .menu-btn, en
+               width 100% et justify-content flex-end, poussait ses barres
+               hors du cadre coupe par l'overflow hidden de l'ilot.
+               Le logo est retire ici, mais le bouton GARDE son width 100% :
+               a l'ouverture, GSAP etire .island jusqu'a 90vw, et une largeur
+               figee y laisserait l'icone plantee a gauche, loin du bord.
+               L'icone est donc simplement recalee sur la droite de l'ilot,
+               quelle que soit sa largeur du moment. */
+            .island .island-logo--cont { display: none; }
+
+            .island .menu-btn {
+              width: 100%;
+              justify-content: flex-end;
+            }
+
+            .island .button-cont { margin-right: 2px; }
         }
 
         /* --- HOME CUSTOM BLACK SECTION --- */
